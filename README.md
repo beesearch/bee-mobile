@@ -19,7 +19,7 @@
 For more informations on phonegap-cli see:
 http://docs.phonegap.com/en/3.0.0/guide_cli_index.md.html
 
-## Grunt notes
+## Get Started
 
 Start Grunt's watch process to build on-the-fly. See Gruntfile.js for more information. Modifying files should happen inside the src/ directory, not the build/ directory.
 
