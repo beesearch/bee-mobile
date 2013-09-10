@@ -1,5 +1,5 @@
 // some globals.
-var _APP_         = 'yourappname'
+var _APP_         = 'zenbox'
   , _CONTROLLERS_ = _APP_ + '.controllers'
   , _DIRECTIVES_  = _APP_ + '.directives'
   , _FILTERS_     = _APP_ + '.filters'
@@ -18,7 +18,6 @@ angular.module(_APP_, [
   _MODULES_,
   _SERVICES_,
 
-
   // add additional modules here, such as ngAnimate
   // ngTouch, ngResource, or your own custom modules.
   // ngTouch and ngRoute are included here by default
@@ -27,8 +26,6 @@ angular.module(_APP_, [
   // to use it!
   'ngTouch',
   'ngRoute'
-
-
 ]);
 
 angular.module(_APP_).run([
@@ -39,11 +36,6 @@ angular.module(_APP_).run([
 
   }
 ]);
-
-
-
-
-
 
 // Create global modules. You shouldn't have to
 // touch these.
