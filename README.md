@@ -1,9 +1,12 @@
 # Zenbox Mobile
 
 ## Installing app
+Clone this project, then lauch :
 
-    phonegap create . fr.zenfactory.zenbox Zenbox
     npm install && bower install && grunt build:development
+
+It will install npm dependencies, bower dependencies et run the first
+development build. The build compile files in `src/` and copy them in `www/`.
 
 ## Building app
 
