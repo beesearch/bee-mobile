@@ -29,3 +29,6 @@ vendor/
 
 # xcode userdata
 xcuserdata
+
+# Compiled project files
+www/*
