@@ -1,6 +1,6 @@
 {
-  "name": "App Name",
-  "description": "App Description",
+  "name": "Zenbox Mobile",
+  "description": "Zenbox Mobile : a powerfull application",
   "version": "1.0.0",
   "dependencies": {
     "angular": "~1.2.0-rc.1",

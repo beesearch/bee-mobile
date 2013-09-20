@@ -39,7 +39,9 @@ module.exports = function(grunt) {
           // add any Bower components here.
           '<%= bowerDir %>/angular/angular.js',
           '<%= bowerDir %>/angular-route/angular-route.js',
-          '<%= bowerDir %>/angular-touch/angular-touch.js'
+          '<%= bowerDir %>/angular-touch/angular-touch.js',
+          '<%= bowerDir %>/jquery/jquery.js',
+          '<%= bowerDir %>/bootstrap/js/collapse.js'
         ],
         // shouldn't need to touch this.
         src: [
