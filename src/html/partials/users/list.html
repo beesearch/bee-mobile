@@ -1,16 +1,16 @@
-<section class="container">UserDetailController
-    <div class="row">
-        <input ng-model="query" class="search-query" placeholder="Rechercher">
+<section class="container">
+
+     <div class="input-group">
+        <div class="input-group-btn">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Trier par <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li><a href="" ng-click="orderProp = 'lastName'">Nom</a></li>
+                <li><a href="" ng-click="orderProp = 'firstName'">Prénom</a></li>
+            </ul>
+        </div>
+        <input ng-model="query" class="form-control" placeholder="Rechercher">
     </div>
-    
-    <div class="row">
-        Trier par :
-        <select ng-model="orderProp">
-            <option value="firstName">Prénom</option>
-            <option value="lastName">Nom de famille</option>
-        </select>
-    </div>
-    
+    &nbsp;
     <div class="well" ng-repeat="user in users | orderBy:orderProp | filter:query">
         <div class="media">
             <div class="media-body pull-left">

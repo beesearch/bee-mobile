@@ -41,7 +41,8 @@ module.exports = function(grunt) {
           '<%= bowerDir %>/angular-route/angular-route.js',
           '<%= bowerDir %>/angular-touch/angular-touch.js',
           '<%= bowerDir %>/jquery/jquery.js',
-          '<%= bowerDir %>/bootstrap/js/collapse.js'
+          '<%= bowerDir %>/bootstrap/js/collapse.js',
+          '<%= bowerDir %>/bootstrap/js/dropdown.js'
         ],
         // shouldn't need to touch this.
         src: [
