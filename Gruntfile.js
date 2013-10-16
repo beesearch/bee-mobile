@@ -325,7 +325,7 @@ module.exports = function(grunt) {
 
     config: {
       options: {
-        template: '<%= srcDir %>/config.xml.tmpl',
+        template: '<%= srcDir %>/config.tmpl.xml',
         dest: '<%= appDir %>/config.xml'
       },
       enterprise: {},
