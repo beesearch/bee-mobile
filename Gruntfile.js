@@ -22,11 +22,9 @@ module.exports = function(grunt) {
     assets: {
       css: {
         vendor: [
-
           // Add additional Bower components here
           '<%= bowerDir %>/bootstrap/dist/css/bootstrap.css',
           '<%= bowerDir %>/font-awesome/css/font-awesome.css'
-
         ],
         // shouldn't need to touch this
         src: [
@@ -302,7 +300,7 @@ module.exports = function(grunt) {
 
     layouts: {
       options: {
-        layout: '<%= srcDir %>/html/layouts/application.tmpl',
+        layout: '<%= srcDir %>/html/index.tmpl.html',
       },
       development: {
         options: {
@@ -327,7 +325,7 @@ module.exports = function(grunt) {
 
     config: {
       options: {
-        template: '<%= srcDir %>/config.xml.tmpl',
+        template: '<%= srcDir %>/config.tmpl.xml',
         dest: '<%= appDir %>/config.xml'
       },
       enterprise: {},
