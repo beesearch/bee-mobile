@@ -29,9 +29,9 @@
 <body>
 
     <!-- barre de navigation -->
-    <nav class="navbar navbar-default" role="navigation">
+    <nav class="navbar navbar-default" role="navigation" ng-controller="NavigationController">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <button type="button" ng-click="isNavbarOpen = !isNavbarOpen" class="navbar-toggle">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -39,10 +39,10 @@
             </button>
             <a class="navbar-brand" href="#">Zenbox</a>
         </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <div class="navbar-collapse" ng-class="{collapse: !isNavbarOpen}">
             <ul class="nav navbar-nav">
-                <li><a href="#/users">Users</a></li>
-                <li class="active"><a href="#/notifications">Notifications</a></li>
+                <li ng-class="{ active: isActive('/users')}"><a ng-click="goto('/users')" href="">Users</a></li>
+                <li ng-class="{ active: isActive('/notifications')}"><a ng-click="goto('/notifications')" href="#">Notifications</a></li>
             </ul>
         </div>
     </nav>

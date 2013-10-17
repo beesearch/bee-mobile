@@ -1,11 +1,10 @@
 <section class="container">
-
      <div class="input-group">
-        <div class="input-group-btn">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Trier par <span class="caret"></span></button>
+        <div class="input-group-btn" ng-class="{open: isDropdownOpen}">
+            <button type="button" class="btn btn-default dropdown-toggle" ng-click="isDropdownOpen = !isDropdownOpen">Trier par <span class="caret"></span></button>
             <ul class="dropdown-menu">
-                <li><a href="" ng-click="orderProp = 'lastName'">Nom</a></li>
-                <li><a href="" ng-click="orderProp = 'firstName'">Prénom</a></li>
+                <li><a href="" ng-click="orderBy('lastName')">Nom</a></li>
+                <li><a href="" ng-click="orderBy('firstName')">Prénom</a></li>
             </ul>
         </div>
         <input ng-model="query" class="form-control" placeholder="Rechercher">
