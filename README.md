@@ -1,4 +1,4 @@
-# Zenbox Mobile
+# Bee Mobile
 
 ## Installing app
 Clone this project, then lauch :
