@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.example.hello" version="1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Your App</name>
+<widget id="fr.beesearch.beemobile" version="1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Bee Mobile</name>
     <description>
-        Your App description.
+         A frontend written with Phonegap, Angular, Bootstrap and love!.
     </description>
-    <author email="your@email.com" href="http://example.com">
-        Your name
+    <author email="technical@beesearch.fr" href="http://beesearch.fr">
+        Bee Search
     </author>
     <access origin="*" />
 

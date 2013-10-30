@@ -6,7 +6,7 @@
 
 module.exports = function(grunt) {
 
-  var _APP_NAME_ = "Zenbox";
+  var _APP_NAME_ = "Bee Mobile";
 
   // initial grunt configuration
   grunt.initConfig({

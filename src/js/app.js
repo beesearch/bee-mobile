@@ -1,5 +1,5 @@
 // some globals.
-var _APP_         = 'zenbox'
+var _APP_         = 'beemobile'
   , _CONTROLLERS_ = _APP_ + '.controllers'
   , _DIRECTIVES_  = _APP_ + '.directives'
   , _FILTERS_     = _APP_ + '.filters'

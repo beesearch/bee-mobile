@@ -1,6 +1,6 @@
 {
-  "name": "Zenbox Mobile",
-  "description": "Zenbox Mobile : a powerfull application",
+  "name": "Bee Mobile",
+  "description": "Bee Mobile : a frontend written with Phonegap, Angular, Bootstrap & love!",
   "version": "1.0.0",
   "dependencies": {
     "angular": "~1.2.0-rc.1",
