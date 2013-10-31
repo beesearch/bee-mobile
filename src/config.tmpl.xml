@@ -1,19 +1,22 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="fr.beesearch.beemobile" version="1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
+<widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id = "fr.beesearch.beemobile"
+        version = "1.0.0">
+
     <name>Bee Mobile</name>
     <description>
          A frontend written with Phonegap, Angular, Bootstrap and love!.
     </description>
     <author email="technical@beesearch.fr" href="http://beesearch.fr">
-        Bee Search
+        Bee Search Team
     </author>
+
     <access origin="*" />
 
-    <!-- Override PhoneGap default configurations here -->
-    <preference name="UIWebViewBounce" value="false" />
-    <preference name="AutoHideSplashScreen" value="false" />
-    <preference name="KeyboardDisplayRequiresUserAction" value="false" />
-    <preference name="ShowSplashScreenSpinner" value="false" />
+    <preference name="phonegap-version" value="3.0.0" />
     
-    <preference name="phonegap-version" value="2.9.0" />
+    <gap:plugin name="org.apache.cordova.device" />
+    <gap:plugin name="org.apache.cordova.dialogs" />
 </widget>

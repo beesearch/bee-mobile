@@ -14,6 +14,7 @@ angular.module(_APP_).config([
         .when('/users', { templateUrl: 'html/partials/users/list.html', controller: 'UserListController' })
         .when('/users/:userId', {templateUrl: 'html/partials/users/detail.html', controller: 'UserDetailController'})
         .when('/notifications', {templateUrl: 'html/partials/phonegap/notifications.html', controller: 'NotificationsController'})
+        .when('/device', {templateUrl: 'html/partials/phonegap/device.html', controller: 'DeviceController'})
         .otherwise({ redirectTo: '/' });
   }
 ]);
