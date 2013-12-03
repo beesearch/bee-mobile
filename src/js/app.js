@@ -24,9 +24,10 @@ angular.module(_APP_, [
   // installed via Bower. Don't forget to add the module
   // to your Gruntfile's bower components if you want
   // to use it!
-  'phonegapServices',
   'ngTouch',
-  'ngRoute'
+  'ngRoute',
+  'oauth2Services',
+  'phonegapServices'
 ]);
 
 angular.module(_APP_).run([
