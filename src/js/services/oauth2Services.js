@@ -11,9 +11,9 @@ oauth2Services.factory('oauth2Token', function($http) {
 				headers: {'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': 'Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW'},
 				data: 'grant_type=password&username=johndoe&password=534b44a19bf18d20b71ecc4eb77c572f'
 			}).success(function(data, status, headers, config) {
-					console.log("data: " + data + ", status: " + status + ", headers: " + headers+ ", config: " + config);
+					console.log("data: " + JSON.stringify(data) + ", status: " + status);
 			}).error(function(data, status, headers, config) {
-					console.log("data: " + data + ", status: " + status + ", headers: " + headers+ ", config: " + config);
+					console.log("data: " + JSON.stringify(data) + ", status: " + status + ", config: " + JSON.stringify(config));
 			});
         }  
     }
