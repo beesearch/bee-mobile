@@ -1,10 +1,6 @@
-"use strict";
 
-var phonegapServices = angular.module('phonegapServices', []);
-
-phonegapServices.factory('cordovaReady', function() {
+angular.module(_SERVICES_).factory('cordovaReady', function() {
   return function (fn) {
-
     var queue = [];
 
     var impl = function () {

@@ -1,7 +1,5 @@
 
-var oauth2Services = angular.module('oauth2Services', []);
-
-oauth2Services.factory('oauth2Token', function($http) {
+angular.module(_SERVICES_).factory('oauth2Token', function($http) {
 
 	return {
         retrieveToken: function(){
