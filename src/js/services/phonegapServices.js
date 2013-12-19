@@ -20,7 +20,7 @@ angular.module(_SERVICES_).factory('cordovaReady', function() {
   };
 });
 
-phonegapServices.factory('geolocationService', function ($rootScope, cordovaReady) {
+angular.module(_SERVICES_).factory('geolocationService', function ($rootScope, cordovaReady) {
   return {
     getCurrentPosition: cordovaReady(function (onSuccess, onError, options) {
       navigator.geolocation.getCurrentPosition(function () {
@@ -47,7 +47,7 @@ phonegapServices.factory('geolocationService', function ($rootScope, cordovaRead
   };
 });
 
-phonegapServices.factory('accelerometerService', function ($rootScope, cordovaReady) {
+angular.module(_SERVICES_).factory('accelerometerService', function ($rootScope, cordovaReady) {
   return {
     getCurrentAcceleration: cordovaReady(function (onSuccess, onError) {
       navigator.accelerometer.getCurrentAcceleration(function () {
@@ -73,7 +73,7 @@ phonegapServices.factory('accelerometerService', function ($rootScope, cordovaRe
   };
 });
 
-phonegapServices.factory('notificationService', function ($rootScope, cordovaReady) {
+angular.module(_SERVICES_).factory('notificationService', function ($rootScope, cordovaReady) {
   return {
     alert: cordovaReady(function (message, alertCallback, title, buttonName) {
       navigator.notification.alert(message, function () {
