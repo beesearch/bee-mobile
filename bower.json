@@ -3,10 +3,10 @@
   "description": "Bee Mobile : a frontend written with Phonegap, Angular, Bootstrap & love!",
   "version": "1.0.0",
   "dependencies": {
-    "angular": "~1.2.3",
-    "angular-route": "~1.2.3",
-    "angular-touch": "~1.2.3",
-    "bootstrap": "~3.0.0",
-    "font-awesome": "~3.2.1"
+    "angular": "git://github.com/angular/bower-angular.git#1.2.5",
+    "angular-route": "git://github.com/angular/bower-angular-route.git#1.2.5",
+    "angular-touch": "git://github.com/angular/bower-angular-touch.git#1.2.5",
+    "bootstrap": "git://github.com/twbs/bootstrap.git#3.0.3",
+    "font-awesome": "git://github.com/FortAwesome/Font-Awesome.git#3.2.1"
   }
 }
