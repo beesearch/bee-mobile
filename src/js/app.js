@@ -25,7 +25,8 @@ angular.module(_APP_, [
   // to your Gruntfile's bower components if you want
   // to use it!
   'ngTouch',
-  'ngRoute'
+  'ngRoute',
+  'ngResource'
 ]);
 
 angular.module(_APP_).run([

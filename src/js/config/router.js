@@ -14,9 +14,9 @@ angular.module(_APP_).config([
         .when('/login', { templateUrl: 'html/partials/home/login.html', controller: 'HomeLoginController' })
         .when('/users', { templateUrl: 'html/partials/users/list.html', controller: 'UserListController' })
         .when('/users/:userId', {templateUrl: 'html/partials/users/detail.html', controller: 'UserDetailController'})
+        .when('/contacts', { templateUrl: 'html/partials/contacts/list.html', controller: 'ContactListController' })
         .when('/notifications', {templateUrl: 'html/partials/phonegap/notifications.html', controller: 'NotificationsController'})
         .when('/device', {templateUrl: 'html/partials/phonegap/device.html', controller: 'DeviceController'})
         .otherwise({ redirectTo: '/' });
   }
 ]);
-
