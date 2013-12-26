@@ -1,0 +1,25 @@
+<section class="container">
+    &nbsp;
+    <table  class="table table-hover">
+        <div ng-repeat="product in products">
+            <div ng-repeat="product in product">
+                <div ng-show='busy'>Loading data...</div>
+                <div class="media">
+                    <a class="pull-left">
+                        <img ng-src="{{product.ArtworkUrl60}}" class="img-rounded" style="width:65px">
+                    </a>
+                    <div>
+                        <div class="media-body pull-left">
+                            <h4 class="media-heading">{{product.title}}</h4>
+                        
+                            <blockquote>
+                                <p><small>Artist Id : {{product.artistId}}</small></p>
+                            </blockquote>                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </table>
+
+</section>
