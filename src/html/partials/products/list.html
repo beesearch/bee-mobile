@@ -1,25 +1,37 @@
 <section class="container">
-    &nbsp;
-    <table  class="table table-hover">
-        <div ng-repeat="product in products">
-            <div ng-repeat="product in product">
-                <div ng-show='busy'>Loading data...</div>
-                <div class="media">
-                    <a class="pull-left">
-                        <img ng-src="{{product.ArtworkUrl60}}" class="img-rounded" style="width:65px">
-                    </a>
-                    <div>
-                        <div class="media-body pull-left">
-                            <h4 class="media-heading">{{product.title}}</h4>
-                        
-                            <blockquote>
-                                <p><small>Artist Id : {{product.artistId}}</small></p>
-                            </blockquote>                
-                        </div>
-                    </div>
-                </div>
+   <div class="input-group">
+    <div class="input-group-btn" ng-class="{open: isDropdownOpen}">
+        <button type="button" class="btn btn-default dropdown-toggle" ng-click="isDropdownOpen = !isDropdownOpen">Trier par <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+            <li><a href="" ng-click="orderBy('title')">Titre</a></li>
+            <li><a href="" ng-click="orderBy('artistId')">Artiste</a></li>
+        </ul>
+    </div>
+    <input ng-model="query" class="form-control" placeholder="Rechercher">
+</div>
+&nbsp;
+
+
+    <div ng-repeat="product in products | orderBy:productProp | filter:{title : query}">
+
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="media-heading">{{product.title}}</h4>
             </div>
         </div>
-    </table>
+
+        <div class="row">
+            <div class="col-xs-3">
+                <img ng-src="{{product.ArtworkUrl60}}" class="img-rounded">
+            </div>
+            <div class="col-xs-9">
+                <blockquote>
+                    <p><small>Artist Id : {{product.artistId}}</small></p>
+                </blockquote>     
+            </div>
+        </div>
+
+    </div>
+
 
 </section>
