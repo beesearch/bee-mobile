@@ -15,21 +15,18 @@
     <div ng-repeat="product in products | orderBy:productProp | filter:{title : query}">
 
         <div class="row">
-            <div class="col-md-12">
-                <h4 class="media-heading">{{product.title}}</h4>
-            </div>
-        </div>
-
-        <div class="row">
             <div class="col-xs-3">
                 <img ng-src="{{product.ArtworkUrl60}}" class="img-rounded">
             </div>
             <div class="col-xs-9">
-                <blockquote>
-                    <p><small>Artist Id : {{product.artistId}}</small></p>
-                </blockquote>     
+                <a href="#/products/{{product.id}}">
+                    <h4 class="media-heading">{{product.title}}</h4>
+                    <h5><small>Artist : {{product.artistId}}</small></h5>
+                </a>
             </div>
         </div>
+
+        <br>
 
     </div>
 
