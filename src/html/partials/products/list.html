@@ -1,5 +1,5 @@
 <section class="container">
-   <div class="input-group">
+ <div class="input-group">
     <div class="input-group-btn" ng-class="{open: isDropdownOpen}">
         <button type="button" class="btn btn-default dropdown-toggle" ng-click="isDropdownOpen = !isDropdownOpen">Trier par <span class="caret"></span></button>
         <ul class="dropdown-menu">
@@ -12,23 +12,23 @@
 &nbsp;
 
 
-    <div ng-repeat="product in products | orderBy:productProp | filter:{title : query}">
+<div ng-repeat="product in products | orderBy:productProp | filter:{title : query}">
 
-        <div class="row">
-            <div class="col-xs-3">
-                <img ng-src="{{product.ArtworkUrl60}}" class="img-rounded">
-            </div>
-            <div class="col-xs-9">
-                <a href="#/products/{{product.id}}">
-                    <h4 class="media-heading">{{product.title}}</h4>
-                    <h5><small>Artist : {{product.artistId}}</small></h5>
-                </a>
-            </div>
+    <div class="row">
+        <div class="col-xs-3">
+            <img ng-src="{{product.ArtworkUrl60}}" class="img-rounded">
         </div>
-
-        <br>
-
+        <div class="col-xs-9">
+            <a href="#/products/{{product.id}}">
+                <h4 class="media-heading">{{product.title}}</h4>
+                <h5><small>Artist : {{product.artistId}}</small></h5>
+            </a>
+        </div>
     </div>
+
+    <br>
+
+</div>
 
 
 </section>
