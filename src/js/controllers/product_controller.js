@@ -29,7 +29,7 @@ angular.module(_CONTROLLERS_).controller('ProductDetailController', function($sc
   	$scope.product = data;
   });
 
-  var url = 'http://localhost:3302/track/findTrackByAlbumId/' + $routeParams.productId;
+  var url = 'http://robbeehome.no-ip.biz:3302/track/findTrackByAlbumId/' + $routeParams.productId;
   $http.get(url).success(function(data) {
   	$scope.tracks = data;
   });
