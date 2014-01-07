@@ -10,12 +10,12 @@ angular.module(_SERVICES_).factory('oauth2Token', function($http) {
 		return localStorage.access_token;
 	}
 
-	oauth2Token.retrieveToken = function(){
+	oauth2Token.retrieveToken = function(username, password){
 		$http({
 			method: 'POST',
 			url: 'http://localhost/oauth/token',
 			headers: {'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': 'Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW'},
-			data: 'grant_type=password&username=johndoe&password=534b44a19bf18d20b71ecc4eb77c572f'
+			data: 'grant_type=password&username=' + username + '&password=' + password
 		}).success(function(data, status, headers, config) {
 			console.log("data: " + JSON.stringify(data) + ", status: " + status);
 			oauth2Token.set(data.access_token);

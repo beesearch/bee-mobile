@@ -6,7 +6,7 @@ angular.module(_CONTROLLERS_).controller('HomeLoginController', function($scope,
     console.log('### HomeLoginController in');
     
     $scope.signin = function() {
-		oauth2Token.retrieveToken();
+		oauth2Token.retrieveToken($scope.username, $scope.password);
 	};
 
     console.log('### HomeLoginController out');
