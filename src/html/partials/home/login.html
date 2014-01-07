@@ -3,15 +3,13 @@
   <form class="form-signin">
     <h2 class="form-signin-heading">Please sign in</h2>
 
-	<input ng-model="username" type="text" class="form-control" placeholder="Email address" required autofocus />
-    <input ng-model="password" type="password" class="form-control" placeholder="Password" required />
-<!--
+	<input type="text" ng-model="username" class="form-control" placeholder="Email address" required autofocus />
+    <input type="password" ng-model="password" class="form-control" placeholder="Password" required />
     <label class="checkbox">
-      <input type="checkbox" value="remember-me"> Remember me
+      <input type="checkbox" ng-model="rememberme" ng-checked="remembermechecked" ng-change="rememberme_change()"> Remember me
     </label>
--->
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="signin()">Sign in</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="signin_click()">Sign in</button>
   </form>
 
 </div>
