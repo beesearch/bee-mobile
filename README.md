@@ -15,28 +15,26 @@ development build. The build compile files in `src/` and copy them in `www/`.
 
 ## Adding phonegap plugins
 
-    phonegap local plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git
-    phonegap local plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-dialogs.git
-    phonegap local plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-vibration.git
+Phonegap plugins are added in the src/config.tmpl.xml
 
-For more informations on phonegap-cli see:
-http://docs.phonegap.com/en/3.0.0/guide_cli_index.md.html
+Fora list of phonegap plugins:
+https://build.phonegap.com/plugins
 
 ## Get Started
 
-Start Grunt's watch process to build on-the-fly. See Gruntfile.js for more information. Modifying files should happen inside the src/ directory, not the build/ directory.
+Start the developement watch process to build on-the-fly. When launched,
+it will build the project (development target), launch a web-server and
+start watching for changes. Modifying files should happen inside the `src`
+directory, not the `src` directory.
 
-    grunt watch
+    grunt dev
 
-When you change any file in the `src/` directory, grunt will notice and
-recompile the proper files and place them into the `www/` directory. The
-`www` directory is then later used by phonegap to prepare the
-application to be copied over to the device (or simulator).
+When you change any file in the `src` directory, grunt will notice and
+recompile the proper files and place them into the `www` directory. The
+`www` directory is then later used by phonegap to prepare the application
+to be copied over to the device (or simulator).
 
-`grunt watch` will only watch for files you change and only build out
-related files. For example, if you change a .less file, grunt will only
-rebuild all LESS files and copy them over to `www/`. If you want to
-rebuild the entire project, use the following commands:
+If you want to rebuild the entire project, use the following commands:
 
     grunt build:development
 
@@ -45,7 +43,4 @@ or
     grunt build:production
 
 The latter will use UglifyJS to minify your files, setting them up for
-production. It will also use the the file in
-`src/js/config/environments/production.js`. This is useful for setting
-up things like API routes and/or public keys that differ
-per-environment.
+production.
