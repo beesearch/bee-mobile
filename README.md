@@ -29,6 +29,8 @@ directory, not the `www` directory.
 
     grunt dev
 
+You can now test the project on your browser, using url: `http://localhost:8000`
+
 When you change any file in the `src` directory, grunt will notice and
 recompile the proper files and place them into the `www` directory. The
 `www` directory is then later used by phonegap to prepare the application
