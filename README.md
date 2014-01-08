@@ -6,7 +6,7 @@ Clone this project, then lauch :
     npm install && bower install && grunt build:development
 
 It will install npm dependencies, bower dependencies et run the first
-development build. The build compile files in `src/` and copy them in `www/`.
+development build. The build compile files in `src` and copy them in `www`.
 
 ## Building app
 
@@ -25,7 +25,7 @@ https://build.phonegap.com/plugins
 Start the developement watch process to build on-the-fly. When launched,
 it will build the project (development target), launch a web-server and
 start watching for changes. Modifying files should happen inside the `src`
-directory, not the `src` directory.
+directory, not the `www` directory.
 
     grunt dev
 
