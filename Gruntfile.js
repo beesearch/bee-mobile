@@ -30,8 +30,7 @@ module.exports = function(grunt) {
       css: {
         vendor: [
           // Add additional Bower components here
-          '<%= bowerDir %>/bootstrap/dist/css/bootstrap.css',
-          '<%= bowerDir %>/font-awesome/css/font-awesome.css'
+          '<%= bowerDir %>/ionic/dist/css/ionic.css'
         ],
         // shouldn't need to touch this
         src: [
@@ -42,10 +41,13 @@ module.exports = function(grunt) {
       js: {
         vendor: [
           // add any Bower components here.
-          '<%= bowerDir %>/angular/angular.js',
-          '<%= bowerDir %>/angular-route/angular-route.js',
-          '<%= bowerDir %>/angular-touch/angular-touch.js',
-          '<%= bowerDir %>/angular-resource/angular-resource.js'
+          '<%= bowerDir %>/ionic/dist/js/ionic.js',
+          '<%= bowerDir %>/ionic/dist/js/angular/angular.js',
+          '<%= bowerDir %>/ionic/dist/js/angular/angular-animate.js',
+          '<%= bowerDir %>/ionic/dist/js/angular/angular-route.js',
+          '<%= bowerDir %>/ionic/dist/js/angular/angular-touch.js',
+          '<%= bowerDir %>/ionic/dist/js/angular/angular-sanitize.js',
+          '<%= bowerDir %>/ionic/dist/js/ionic-angular.js'
         ],
         // shouldn't need to touch this.
         src: [
