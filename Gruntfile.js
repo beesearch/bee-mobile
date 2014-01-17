@@ -47,6 +47,7 @@ module.exports = function(grunt) {
           '<%= bowerDir %>/ionic/dist/js/angular/angular-route.js',
           '<%= bowerDir %>/ionic/dist/js/angular/angular-touch.js',
           '<%= bowerDir %>/ionic/dist/js/angular/angular-sanitize.js',
+          '<%= bowerDir %>/ionic/dist/js/angular-ui/angular-ui-router.js',
           '<%= bowerDir %>/ionic/dist/js/ionic-angular.js'
         ],
         // shouldn't need to touch this.

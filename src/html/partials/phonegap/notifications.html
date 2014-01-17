@@ -1,3 +1,23 @@
-<section class="container">
-    <h1>Notifications</h1>
-</section>
+<view title="'Notifications'">
+	<content has-header="true" padding="true">
+		<button class="button button-block button-assertive" ng-click="alertNotify()">
+			Alert
+		</button>
+
+		<button class="button button-block button-positive" ng-click="confirmNotify()">
+			Confirm
+		</button>
+
+		<button class="button button-block button-royal" ng-click="promptNotify()">
+			Prompt
+		</button>
+
+		<button class="button button-block button-balanced" ng-click="vibrateNotify()">
+			Vibrate
+		</button>
+
+		<button class="button button-block button-energized" ng-click="beepNotify()">
+			Beep
+		</button>
+	</content>
+</view>

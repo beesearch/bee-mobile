@@ -4,48 +4,56 @@
  * Defines the routes for the application.
  *
  */
- angular.module(_APP_).config([
-  '$routeProvider',
-  function($routeProvider) {
+ angular.module(_APP_).config(function($stateProvider, $urlRouterProvider) {
 
     // Define routes here.
-    $routeProvider
-    .when('/', { 
-      templateUrl: 'html/partials/home/index.html', 
-      controller: 'HomeController' 
+    $stateProvider
+    .state('home', {
+      url: '/home',
+      templateUrl: 'html/partials/home/index.html',
+      controller: 'HomeController'
     })
-    .when('/login', { 
-      templateUrl: 'html/partials/home/login.html', 
-      controller: 'HomeLoginController' 
+    .state('login', {
+      url: '/login',
+      templateUrl: 'html/partials/home/login.html',
+      controller: 'HomeLoginController'
     })
-    .when('/users', { 
-      templateUrl: 'html/partials/users/list.html', 
-      controller: 'UserListController' 
+    .state('users', {
+      url: '/users',
+      templateUrl: 'html/partials/users/list.html',
+      controller: 'UserListController'
     })
-    .when('/users/:userId', {
-      templateUrl: 'html/partials/users/detail.html', 
+    .state('user', {
+      url: '/users/:userId',
+      templateUrl: 'html/partials/users/detail.html',
       controller: 'UserDetailController'
     })
-    .when('/products', { 
-      templateUrl: 'html/partials/products/list.html', 
-      controller: 'ProductListController' 
+    .state('products', {
+      url: '/products',
+      templateUrl: 'html/partials/products/list.html',
+      controller: 'ProductListController'
     })
-    .when('/products/:productId', {
-      templateUrl: 'html/partials/products/detail.html', 
+    .state('product', {
+      url: '/products/:productId',
+      templateUrl: 'html/partials/products/detail.html',
       controller: 'ProductDetailController'
     })
-    .when('/contacts', { 
-      templateUrl: 'html/partials/contacts/list.html', 
-      controller: 'ContactListController' 
+    .state('contacts', {
+      url: '/contacts',
+      templateUrl: 'html/partials/contacts/list.html',
+      controller: 'ContactListController'
     })
-    .when('/notifications', {
-      templateUrl: 'html/partials/phonegap/notifications.html', 
+    .state('notifications', {
+      url: '/notifications',
+      templateUrl: 'html/partials/phonegap/notifications.html',
       controller: 'NotificationsController'
     })
-    .when('/device', {
-      templateUrl: 'html/partials/phonegap/device.html', 
+    .state('device', {
+      url: '/device',
+      templateUrl: 'html/partials/phonegap/device.html',
       controller: 'DeviceController'
-    })
-    .otherwise({ redirectTo: '/' });
+    });
+    
+    $urlRouterProvider.otherwise('/home');
   }
-  ]);
+);

@@ -7,37 +7,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="img/favicon.png">
 
-<% if (env == 'development') {
-     css.forEach(function(asset) {
-       print('  <link rel="stylesheet" href="' + asset.substring(4) + '"/>\n');
+  <% if (env == 'development') {
+   css.forEach(function(asset) {
+     print('  <link rel="stylesheet" href="' + asset.substring(4) + '"/>\n');
      });
    } else if (env == 'production') {
      print('  <link rel="stylesheet" href="css/app.css" />');
    } %>
 
-  <script src="phonegap.js"></script>
-<% if (env == 'development') {
-  print('  <script src="js/config/development.js"></script>');
-     js.forEach(function(asset){
-       print('  <script src="' + asset.substring(4) + '"></script>\n');
+   <script src="phonegap.js"></script>
+   <% if (env == 'development') {
+    print('  <script src="js/config/development.js"></script>');
+    js.forEach(function(asset){
+     print('  <script src="' + asset.substring(4) + '"></script>\n');
      });
-   } else if (env == 'production') {
+    } else if (env == 'production') {
      print('  <script src="js/application.js"></script>');
    } %>
 
 </head>
 <body>
-
   <side-menus>
     <!-- Center content -->
     <pane side-menu-content>
+<!--
       <header class="bar bar-header bar-dark">
         <h1 class="title">BeeSearch!</h1>
       </header>
-      <content has-header="true">
-        <!-- View content -->
-        <div ng-view></div>
-      </content>
+-->
+      <!-- The nav bar that will be updated as we navigate -->
+      <nav-bar animation="nav-title-slide-ios7" 
+         type="bar-positive" 
+         back-button-type="button-icon" 
+         back-button-icon="ion-arrow-left-c"></nav-bar>
+      <!-- Where the initial view template will be rendered -->
+      <nav-view animation="slide-left-right"></nav-view>
+
+      <nav id="tab-bar" class="tabs tabs-icon-only tabs-default">
+        <a class="tab-item" href="#">
+          <i class="icon ion-home"></i>
+        </a>
+        <a class="tab-item" href="#/login">
+          <i class="icon ion-locked"></i>
+        </a>
+        <a class="tab-item" href="#/notifications">
+          <i class="icon ion-settings"></i>
+        </a>
+      </nav>
     </pane>
 
     <!-- Left menu -->
@@ -47,43 +63,32 @@
       </header>
       <content has-header="true">
         <div class="list">
-            <a class="item" href="#" ng-click="goto('/login')">
-              Login
-            </a>
+          <a class="item" href="#/login">
+            Login
+          </a>
+          <a class="item" href="#/contacts">
+            Contacts
+          </a>
+          <a class="item" href="#/users">
+            Users
+          </a>
+          <a class="item" href="#/products">
+            Products
+          </a>
+          <a class="item" href="#/notifications">
+            Notifications
+          </a>
+          <a class="item" href="#/device">
+            Device
+          </a>
         </div>
       </content>
     </side-menu>
   </side-menus>
 
   <script type="text/javascript">
-      pg.initialize();
+  pg.initialize();
   </script>
-
-  <!-- barre de navigation
-  <nav class="navbar navbar-default" role="navigation" ng-controller="NavigationController">
-      <div class="navbar-header">
-          <button type="button" ng-click="isNavbarOpen = !isNavbarOpen" class="navbar-toggle">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Bee Mobile ! </a>
-      </div>
-      <div class="navbar-collapse" ng-class="{collapse: !isNavbarOpen}">
-          <ul class="nav navbar-nav">
-              <li ng-class="{ active: isActive('/login')}"><a ng-click="goto('/login')" href="">Login</a></li>
-              <li ng-class="{ active: isActive('/contacts')}"><a ng-click="goto('/contacts')" href="">Contacts</a></li>
-              <li ng-class="{ active: isActive('/users')}"><a ng-click="goto('/users')" href="">Users</a></li>
-              <li ng-class="{ active: isActive('/products')}"><a ng-click="goto('/products')" href="">Products</a></li>        
-              <li ng-class="{ active: isActive('/notifications')}"><a ng-click="goto('/notifications')" href="#">Notifications</a></li>
-              <li ng-class="{ active: isActive('/device')}"><a ng-click="goto('/device')" href="">Device</a></li>
-          </ul>
-      </div>
-  </nav>
-
-  <div ng-view></div>
-   -->
 
 </body>
 </html>

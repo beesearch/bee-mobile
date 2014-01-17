@@ -1,4 +1,4 @@
-angular.module(_CONTROLLERS_).controller('DeviceController', function($scope, notificationService) {
+angular.module(_CONTROLLERS_).controller('DeviceController', function($scope) {
     console.log('### DeviceController in');
     
     $scope.device = device;

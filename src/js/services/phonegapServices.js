@@ -95,6 +95,16 @@ angular.module(_SERVICES_).factory('notificationService', function ($rootScope, 
         });
       }, title, buttonLabels);
     }),
+    prompt: cordovaReady(function (message, promptCallback, title, buttonLabels, defaultText) {
+      navigator.notification.prompt(message, function () {
+        var that = this,
+          args = arguments;
+        
+        $rootScope.$apply(function () {
+          promptCallback.apply(that, args);
+        });
+      }, title, buttonLabels, defaultText);
+    }),
     beep: function (times) {
       navigator.notification.beep(times);
     },

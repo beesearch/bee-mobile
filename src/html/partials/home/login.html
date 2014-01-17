@@ -1,15 +1,23 @@
-<div class="container">
+<view title="'Login'">
+	<content has-header="true" padding="true">
+		<div class="list list-inset">
+			<label class="item item-input">
+				<input type="text" ng-model="username" placeholder="Username">
+			</label>
+			<label class="item item-input">
+				<input type="text" ng-model="password" placeholder="Password">
+			</label>
+		</div>
 
-  <form class="form-signin">
-    <h2 class="form-signin-heading">Please sign in</h2>
+		<div>
+			<label class="checkbox">
+				<input type="checkbox" ng-model="rememberme" ng-checked="remembermechecked" ng-change="rememberme_change()">
+			</label>
+			Remember me
+		</div>
 
-	<input type="text" ng-model="username" class="form-control" placeholder="Email address" required autofocus />
-    <input type="password" ng-model="password" class="form-control" placeholder="Password" required />
-    <label class="checkbox">
-      <input type="checkbox" ng-model="rememberme" ng-checked="remembermechecked" ng-change="rememberme_change()"> Remember me
-    </label>
-
-    <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="signin_click()">Sign in</button>
-  </form>
-
-</div>
+		<div class="padding">
+			<button class="button button-block button-positive" ng-click="signin_click()">Sign In</button>
+		</div>
+	</content>
+</view>
