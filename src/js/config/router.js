@@ -18,6 +18,11 @@
       templateUrl: 'html/partials/home/login.html',
       controller: 'HomeLoginController'
     })
+    .state('search', {
+      url: '/search',
+      templateUrl: 'html/partials/search/search.html',
+      controller: 'SearchController'
+    })
     .state('users', {
       url: '/users',
       templateUrl: 'html/partials/users/list.html',

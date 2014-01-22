@@ -1,0 +1,12 @@
+<view title="'Recherche'">
+	<content has-header="true" padding="true" on-infinite-scroll="loadMore">
+
+		<list>
+			<item ng-repeat="movie in movies" href="#/movie/{{movie.id}}" type="item-link">
+				{{ movie.title }}
+			</item>
+		</list>
+		<infinite-scroll></infinite-scroll>
+
+	</content>
+</view>
