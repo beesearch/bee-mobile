@@ -9,21 +9,17 @@ var _APP_         = 'beemobile'
 // top-level module
 angular.module(_APP_, [
   // Your application's namespaced modules
-   // so they won't conflict with other
-   // modules. You shouldn't have to touch
-   // these unless you want to.             
+  // so they won't conflict with other
+  // modules. You shouldn't have to touch
+  // these unless you want to.
   _CONTROLLERS_,
   _DIRECTIVES_,
   _FILTERS_,
   _MODULES_,
   _SERVICES_,
 
-  // add additional modules here, such as ngAnimate
-  // ngTouch, ngResource, or your own custom modules.
-  // ngTouch and ngRoute are included here by default
-  // installed via Bower. Don't forget to add the module
-  // to your Gruntfile's bower components if you want
-  // to use it!
+  // add additional modules here, installed via Bower. Don't forget to add the module
+  // to your Gruntfile's bower components if you want to use it!
   'ionic'
 ]);
 

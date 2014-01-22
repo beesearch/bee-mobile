@@ -301,7 +301,7 @@ module.exports = function(grunt) {
         tasks: ['clean:partials', 'copy:partials']
       },
       layouts: {
-        files: ['<%= srcDir %>/html/layouts/**'],
+        files: ['<%= srcDir %>/html/**'],
         tasks: ['layouts:development']
       }
     },
