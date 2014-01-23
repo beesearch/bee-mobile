@@ -1,32 +1,29 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <title><%= appName %></title>
   <meta charset="utf-8">
-  <meta name="format-detection" content="telephone=no" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="img/favicon.png">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title><%= appName %></title>
 
   <% if (env == 'development') {
-   css.forEach(function(asset) {
-     print('  <link rel="stylesheet" href="' + asset.substring(4) + '"/>\n');
-     });
-   } else if (env == 'production') {
-     print('  <link rel="stylesheet" href="css/app.css" />');
-   } %>
+    css.forEach(function(asset) {
+      print('  <link rel="stylesheet" href="' + asset.substring(4) + '"/>\n');
+    });
+  } else if (env == 'production') {
+    print('  <link rel="stylesheet" href="css/app.css" />');
+  } %>
 
-   <script src="phonegap.js"></script>
-   <% if (env == 'development') {
+  <script src="phonegap.js"></script>
+  <% if (env == 'development') {
     print('  <script src="js/config/development.js"></script>');
     js.forEach(function(asset){
-     print('  <script src="' + asset.substring(4) + '"></script>\n');
-     });
-    } else if (env == 'production') {
-     print('  <script src="js/application.js"></script>');
-   } %>
-
+      print('  <script src="' + asset.substring(4) + '"></script>\n');
+    });
+  } else if (env == 'production') {
+    print('  <script src="js/application.js"></script>');
+  } %>
 </head>
-<body>
+<body animation="slide-left-right-ios7">
   <side-menus>
     <!-- Center content -->
     <pane side-menu-content>
