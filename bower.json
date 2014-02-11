@@ -3,6 +3,6 @@
   "description": "Bee Mobile : a frontend written with Ionic, Phonegap, Angular & love!",
   "version": "1.0.0",
   "dependencies": {
-    "ionic": "~0.9.20-alpha"
+    "ionic": "~0.9.23-alpha"
   }
 }

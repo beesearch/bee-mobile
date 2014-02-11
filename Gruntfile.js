@@ -30,7 +30,7 @@ module.exports = function(grunt) {
       css: {
         vendor: [
           // Add additional Bower components here
-          '<%= bowerDir %>/ionic/dist/css/ionic.css'
+          '<%= bowerDir %>/ionic/release/css/ionic.css'
         ],
         // shouldn't need to touch this
         src: [
@@ -41,14 +41,12 @@ module.exports = function(grunt) {
       js: {
         vendor: [
           // add any Bower components here.
-          '<%= bowerDir %>/ionic/dist/js/ionic.js',
-          '<%= bowerDir %>/ionic/dist/js/angular/angular.js',
-          '<%= bowerDir %>/ionic/dist/js/angular/angular-animate.js',
-          '<%= bowerDir %>/ionic/dist/js/angular/angular-route.js',
-          '<%= bowerDir %>/ionic/dist/js/angular/angular-touch.js',
-          '<%= bowerDir %>/ionic/dist/js/angular/angular-sanitize.js',
-          '<%= bowerDir %>/ionic/dist/js/angular-ui/angular-ui-router.js',
-          '<%= bowerDir %>/ionic/dist/js/ionic-angular.js'
+          '<%= bowerDir %>/ionic/release/js/ionic.js',
+          '<%= bowerDir %>/angular/angular.js',
+          '<%= bowerDir %>/angular-animate/angular-animate.js',
+          '<%= bowerDir %>/angular-sanitize/angular-sanitize.js',
+          '<%= bowerDir %>/angular-ui-router/release/angular-ui-router.js',
+          '<%= bowerDir %>/ionic/release/js/ionic-angular.js'
         ],
         // shouldn't need to touch this.
         src: [
@@ -63,6 +61,7 @@ module.exports = function(grunt) {
           '<%= appDir %>/js/controllers.js'
         ]
       }
+
     },
 
     // concatenate files for angularjs
@@ -160,7 +159,7 @@ module.exports = function(grunt) {
       },
       fonts: {
         files: [
-          { expand: true, cwd: '<%= bowerDir %>/ionic/dist/fonts/', src: ['**'], dest: '<%= appDir %>/fonts/' }
+          { expand: true, cwd: '<%= bowerDir %>/ionic/release/fonts/', src: ['**'], dest: '<%= appDir %>/fonts/' }
         ]
       },
       tmp_to_build: {
