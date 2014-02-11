@@ -2,18 +2,19 @@
 	<content has-header="true" padding="true">
 		<div class="list list-inset">
 			<label class="item item-input">
+				<span class="input-label">Username</span>
 				<input type="text" ng-model="username" placeholder="Username">
 			</label>
 			<label class="item item-input">
-				<input type="text" ng-model="password" placeholder="Password">
+				<span class="input-label">Password</span>
+				<input type="password" ng-model="password" placeholder="Password">
 			</label>
-		</div>
-
-		<div>
-			<label class="checkbox">
-				<input type="checkbox" ng-model="rememberme" ng-checked="remembermechecked" ng-change="rememberme_change()">
+			<label class="item item-checkbox">
+				<label class="checkbox">
+					<input type="checkbox" ng-model="rememberme" ng-checked="remembermechecked" ng-change="rememberme_change()">
+				</label>
+				Remember me
 			</label>
-			Remember me
 		</div>
 
 		<div class="padding">

@@ -52,12 +52,64 @@
     <!-- Left menu -->
     <side-menu side="left">
       <header class="bar bar-header bar-dark">
-        <h1 class="title">Menu</h1>
+        <label class="item item-input item-input-wrapper">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="text" placeholder="Search">
+        </label>
       </header>
       <content has-header="true">
         <div class="list">
-          <a class="item" href="#/login">
+          <div class="item item-divider">
+            Aspects
+          </div>
+          <div class="item item-icon-left item-toggle">
+            <i class="icon ion-ios7-people"></i>
+            R.H.
+            <label class="toggle">
+              <input type="checkbox">
+              <div class="track">
+                <div class="handle"></div>
+              </div>
+            </label>
+          </div>
+          <div class="item item-icon-left item-toggle">
+            <i class="icon ion-person"></i>
+            Clients
+            <label class="toggle">
+              <input type="checkbox" checked>
+              <div class="track">
+                <div class="handle"></div>
+              </div>
+            </label>
+          </div>
+          <div class="item item-icon-left item-toggle">
+            <i class="icon ion-clipboard"></i>
+            Factures
+            <label class="toggle">
+              <input type="checkbox" checked>
+              <div class="track">
+                <div class="handle"></div>
+              </div>
+            </label>
+          </div>
+          <div class="item item-divider">
+            Menu
+          </div>
+          <a class="item item-icon-left" href="#/login">
+            <i class="icon ion-log-in"></i>
             Login
+          </a>
+          <a class="item item-icon-left" href="#/search">
+            <i class="icon ion-search"></i>
+            Recherche
+          </a>
+          <a class="item item-icon-left" href="#/notifications">
+            <i class="icon ion-alert"></i>
+            Notifications
+          </a>
+          <a class="item item-icon-left" href="#/device">
+            <i class="icon ion-iphone"></i>
+            Device
           </a>
           <!-- <a class="item" href="#/contacts">
             Contacts
@@ -68,15 +120,6 @@
           <a class="item" href="#/products">
             Products
           </a> -->
-          <a class="item" href="#/search">
-            Recherche
-          </a>
-          <a class="item" href="#/notifications">
-            Notifications
-          </a>
-          <a class="item" href="#/device">
-            Device
-          </a>
         </div>
       </content>
     </side-menu>

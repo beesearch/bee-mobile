@@ -59,6 +59,6 @@
       controller: 'DeviceController'
     });
     
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/login');
   }
 );
