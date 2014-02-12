@@ -23,7 +23,7 @@
     print('  <script src="js/application.js"></script>');
   } %>
 </head>
-<body animation="slide-left-right-ios7">
+<body animation="slide-left-right-ios7" ng-controller="AppController">
   <side-menus>
     <!-- Center content -->
     <pane side-menu-content>
@@ -40,11 +40,11 @@
         <a class="tab-item" href="#">
           <i class="icon ion-home"></i>
         </a>
-        <a class="tab-item" href="#/login">
-          <i class="icon ion-locked"></i>
-        </a>
         <a class="tab-item" href="#/notifications">
           <i class="icon ion-settings"></i>
+        </a>
+        <a class="tab-item" href="#/logout">
+          <i class="icon ion-log-out"></i>
         </a>
       </nav>
     </pane>
@@ -126,7 +126,7 @@
   </side-menus>
 
   <script type="text/javascript">
-  pg.initialize();
+    pg.initialize();
   </script>
 
 </body>

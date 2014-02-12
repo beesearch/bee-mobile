@@ -8,21 +8,26 @@
 angular.module(_APP_).config(function($httpProvider) {
   var responseInterceptor = function($q) {
     return {
+
       response: function (response) {
         // do something on success
         return response;
       },
+      
       responseError: function (response) {
         // do something on error
         console.log('HTTP interceptor responseError:' + JSON.stringify(response));
         if(response.status === 401){
-          // TODO: Refresh token ?
-          $location.path('/login');
+          // TODO: Refresh token?
+
+          // Display login modal
+
           return $q.reject(response);
         } else {
           return $q.reject(response);
         }
       }
+
     }
   };
 
