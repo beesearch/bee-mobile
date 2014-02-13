@@ -1,27 +1,28 @@
-angular.module(_CONTROLLERS_).controller('HomeController', function($scope) {
-    $scope.text = "Hello World!";
+angular.module(_CONTROLLERS_).controller('HomeController', function($scope, $ionicModal, oauth2Token) {
+	$scope.text = "Home Page!";
+	oauth2Token.checkLogin();
 });
 
 angular.module(_CONTROLLERS_).controller('HomeLoginController', function($scope, oauth2Token) {
-    console.log('### HomeLoginController in');
-    
-    $scope.username = localStorage.username;
-    $scope.remembermechecked = (localStorage.username !== '');
+	console.log('### HomeLoginController in');
 
-    $scope.signin_click = function() {
+	$scope.username = window.localStorage.getItem("username");
+	$scope.remembermechecked = (window.localStorage.getItem("username") !== '');
+
+	$scope.signin_click = function() {
 		oauth2Token.retrieveToken($scope.username, $scope.password);
 	};
 
 	$scope.rememberme_change = function() {
 		if ($scope.rememberme == true)
 		{
-			localStorage.username = $scope.username;	
+			window.localStorage.setItem("username", $scope.username);	
 		}
 		else
 		{
-			localStorage.username = '';
+			window.localStorage.removeItem("username");
 		};
 	};
 
-    console.log('### HomeLoginController out');
+	console.log('### HomeLoginController out');
 });

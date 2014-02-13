@@ -1,13 +1,20 @@
-<view title="'Login'">
+<div class="modal" ng-controller="HomeLoginController">
+
+	<!-- Modal header bar -->
+	<header class="bar bar-header bar-secondary">
+		<h1 class="title">Login</h1>
+	</header>
+
+	<!-- Modal content area -->
 	<content has-header="true" padding="true">
 		<div class="list list-inset">
 			<label class="item item-input">
 				<span class="input-label">Username</span>
-				<input type="text" ng-model="username" placeholder="Username">
+				<input type="text" ng-model="username" placeholder="Username" required />
 			</label>
 			<label class="item item-input">
 				<span class="input-label">Password</span>
-				<input type="password" ng-model="password" placeholder="Password">
+				<input type="password" ng-model="password" placeholder="Password" required />
 			</label>
 			<label class="item item-checkbox">
 				<label class="checkbox">
@@ -18,7 +25,8 @@
 		</div>
 
 		<div class="padding">
-			<button class="button button-block button-positive" ng-click="signin_click()">Sign In</button>
+			<button class="button button-block button-positive" ng-click="closelogin_click()">Sign In</button>
 		</div>
 	</content>
-</view>
+
+</div>
