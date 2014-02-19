@@ -124,8 +124,8 @@ module.exports = function(grunt) {
       fonts: {
         src: ['<%= appDir %>/fonts']
       },
-      img: {
-        src: ['<%= appDir %>/img']
+      images: {
+        src: ['<%= appDir %>/images']
       },
       partials: {
         src: ['<%= appDir %>/html/partials']
@@ -147,9 +147,9 @@ module.exports = function(grunt) {
           { src: '<%= tmpDir %>/js/vendor.js', dest: '<%= appDir %>/js/vendor.js' }
         ]
       },
-      img: {
+      images: {
         files: [
-          { expand: true, cwd: '<%= srcDir %>/img/', src: ['**'], dest: '<%= appDir %>/img/' }
+          { expand: true, cwd: '<%= srcDir %>/images/', src: ['**'], dest: '<%= appDir %>/images/' }
         ]
       },
       partials: {
@@ -287,9 +287,9 @@ module.exports = function(grunt) {
           'less:development'
         ]
       },
-      img: {
-        files: ['<%= srcDir %>/img/**'],
-        tasks: ['clean:img', 'copy:img']
+      images: {
+        files: ['<%= srcDir %>/images/**'],
+        tasks: ['clean:images', 'copy:images']
       },
       fonts: {
         files: ['<%= srcDir %>/fonts/**'],
@@ -434,7 +434,7 @@ module.exports = function(grunt) {
     grunt.task.run('copy:' + env);
     grunt.task.run('copy:config');
     grunt.task.run('copy:partials');
-    grunt.task.run('copy:img');
+    grunt.task.run('copy:images');
     grunt.task.run('copy:fonts');
 
     // copy tmp files to development
@@ -463,4 +463,3 @@ module.exports = function(grunt) {
   });
 
 };
-
