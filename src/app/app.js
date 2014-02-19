@@ -1,3 +1,9 @@
+/*
+ * app.js
+ *
+ * Main js file for the application.
+ *
+ */
 // some globals.
 var _APP_         = 'beemobile'
   , _CONTROLLERS_ = _APP_ + '.controllers'

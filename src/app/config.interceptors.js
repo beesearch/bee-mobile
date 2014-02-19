@@ -1,5 +1,5 @@
 /*
- * config/interceptors.js
+ * config.interceptors.js
  *
  * Defines the interceptors for the application.
  *

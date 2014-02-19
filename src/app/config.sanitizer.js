@@ -1,5 +1,5 @@
 /*
- * config/sanitizer.js
+ * config.sanitizer.js
  *
  * Defines the regex for link sanitation.
  *

@@ -1,5 +1,5 @@
 /*
- * config/router.js
+ * config.routes.js
  *
  * Defines the routes for the application.
  *

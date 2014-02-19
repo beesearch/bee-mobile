@@ -5,25 +5,27 @@
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
   <title><%= appName %></title>
 
-  <% if (env == 'development') {
+  <% if (target == 'production') {
+    print('  <link rel="stylesheet" href="css/app.css" />');
+  } else {
+    //print('  css: ' + css);
     css.forEach(function(asset) {
       print('  <link rel="stylesheet" href="' + asset.substring(4) + '"/>\n');
     });
-  } else if (env == 'production') {
-    print('  <link rel="stylesheet" href="css/app.css" />');
   } %>
 
   <script src="phonegap.js"></script>
-  <% if (env == 'development') {
-    print('  <script src="js/config/development.js"></script>');
+  <% if (target == 'production') {
+    print('  <script src="js/application.js"></script>');
+  } else {
+    //print('  js: ' + js);
     js.forEach(function(asset){
       print('  <script src="' + asset.substring(4) + '"></script>\n');
     });
-  } else if (env == 'production') {
-    print('  <script src="js/application.js"></script>');
   } %>
 </head>
 <body animation="slide-left-right-ios7" ng-controller="AppController">
+  <% print('target: ' + target); %>
   <side-menus>
     <!-- Center content -->
     <pane side-menu-content>
