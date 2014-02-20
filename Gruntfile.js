@@ -88,18 +88,10 @@ module.exports = function(grunt) {
 	// build HTML files based on target
 	grunt.registerTask('layout', 'Builds an HTML file for angular.', function() {
 
-		var opts = this.options()
-			, target = this.target
-			, css = ['<%= bowerDir %>/ionic/release/css/ionic.css']
-			, js = ['<%= bowerDir %>/ionic/release/js/ionic.js',
-					'<%= bowerDir %>/angular/angular.js',
-					'<%= bowerDir %>/angular-animate/angular-animate.js',
-					'<%= bowerDir %>/angular-sanitize/angular-sanitize.js',
-					'<%= bowerDir %>/angular-ui-router/release/angular-ui-router.js',
-					'<%= bowerDir %>/ionic/release/js/ionic-angular.js'
-					]
-			, layout = grunt.template.process(grunt.file.read(opts.layout), {
-				data: { target: target, js: js, css: css, appName: _APP_NAME_ }
+		var opts = this.options(),
+			target = this.target,
+			layout = grunt.template.process(grunt.file.read(opts.layout), {
+				data: { target: target, appName: _APP_NAME_ }
 			});
 
 		// generate main index.html file

@@ -4,25 +4,23 @@
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
   <title><%= appName %></title>
-
-  <% if (target == 'production') {
-    print('  <link rel="stylesheet" href="css/app.css" />');
-  } else {
-    //print('  css: ' + css);
-    css.forEach(function(asset) {
-      print('  <link rel="stylesheet" href="' + asset.substring(4) + '"/>\n');
-    });
-  } %>
-
+<% if (target == 'production') {
+  print('  <link rel="stylesheet" href="css/app.css" />');
+} else { %>
+  <link rel="stylesheet" href="/css/ionic.css"/>
+<% } %>
   <script src="phonegap.js"></script>
-  <% if (target == 'production') {
-    print('  <script src="js/application.js"></script>');
-  } else {
-    //print('  js: ' + js);
-    js.forEach(function(asset){
-      print('  <script src="' + asset.substring(4) + '"></script>\n');
-    });
-  } %>
+<% if (target == 'production') {
+  print('  <script src="js/application.js"></script>');
+} else { %>
+  <script src="/js/app.js"></script>
+  <script src="/js/config.js"></script>
+  <script src="/js/controllers.js"></script>
+  <script src="/js/directives.js"></script>
+  <script src="/js/filters.js"></script>
+  <script src="/js/modules.js"></script>
+  <script src="/js/services.js"></script>
+<% } %>
 </head>
 <body animation="slide-left-right-ios7" ng-controller="AppController">
   <% print('target: ' + target); %>
