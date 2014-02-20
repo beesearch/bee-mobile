@@ -41,6 +41,14 @@ module.exports = function(grunt) {
 			}
 		},
 
+		copy: {
+			fonts: {
+				files: [
+					{ expand: true, cwd: '<%= bowerDir %>/ionic/release/fonts/', src: ['**'], dest: '<%= appDir %>/fonts/' }
+				]
+			}
+		},
+
 		config: {
 			options: {
 				template: '<%= srcDir %>/config.tmpl.xml',
@@ -110,8 +118,11 @@ module.exports = function(grunt) {
 		// clean up directories
 		grunt.task.run('clean');
 
-		// concatenate files
+		// concatenate files in www
 		grunt.task.run('concat');
+
+		// copy files in www (fonts, ...)
+		grunt.task.run('copy');
 
 		// build cordova config.xml file, uses target so we
 		// can switch from production to enterprise for bundle ID
