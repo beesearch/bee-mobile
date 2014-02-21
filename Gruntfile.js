@@ -25,7 +25,7 @@ module.exports = function(grunt) {
 					'<%= appDir %>/js/controllers.js' :	['<%= srcDir %>/views/**/*.js']
 				}
 			},
-			vendor: {
+			vendorjs: {
 				files: {
 					'<%= appDir %>/js/vendor.js' : [
 						// add any Bower components here
@@ -35,8 +35,12 @@ module.exports = function(grunt) {
 						'<%= bowerDir %>/angular-sanitize/angular-sanitize.js',
 						'<%= bowerDir %>/angular-ui-router/release/angular-ui-router.js',
 						'<%= bowerDir %>/ionic/release/js/ionic-angular.js'
-					],
-					'<%= appDir %>/css/vendor.css': '<%= bowerDir %>/ionic/release/css/ionic.css',
+					]
+				}
+			},
+			vendorcss: {
+				files: {
+					'<%= appDir %>/css/vendor.css': '<%= bowerDir %>/ionic/release/css/ionic.css'
 				}
 			}
 		},
@@ -47,10 +51,34 @@ module.exports = function(grunt) {
 					{ expand: true, cwd: '<%= bowerDir %>/ionic/release/fonts/', src: ['**'], dest: '<%= appDir %>/fonts/' }
 				]
 			},
+			images: {
+				files: [
+					{ expand: true, cwd: '<%= srcDir %>/images/', src: ['**'], dest: '<%= appDir %>/images/' }
+				]
+			},
 			views: {
 				files: [
 					{ expand: true, cwd: '<%= srcDir %>/views/', src: ['**/*.html'], dest: '<%= appDir %>/views/' }
 				]
+			}
+		},
+
+		// compile LESS files into CSS and store them in temp directories
+		less: {
+			options: {
+				paths: [
+					// add any additional paths to LESS components here
+					"<%= srcDir %>/css/config"
+				]
+			},
+			app: {
+				files: {
+					// put app.css directly into the build directory for development
+					"<%= appDir %>/css/app.css": [
+						"<%= srcDir %>/css/common/*.less",
+						"<%= srcDir %>/css/*.less"
+					]
+				}
 			}
 		},
 
@@ -75,14 +103,69 @@ module.exports = function(grunt) {
 			},
 			app: {
 				src: ['<%= appDir %>/*'],
+			},
+			css: {
+				src: ['<%= appDir %>/css']
+			},
+			js: {
+				src: ['<%= appDir %>/js']
+			},
+			fonts: {
+				src: ['<%= appDir %>/fonts']
+			},
+			images: {
+				src: ['<%= appDir %>/images']
+			},
+			views: {
+				src: ['<%= appDir %>/views']
+			}
+		},
+
+		// watch files, build on the fly for development
+		watch: {
+			config: {
+				files: ['<%= srcDir %>/*'],
+				tasks: ['config']
+			},
+			scripts: {
+				files: ['<%= srcDir %>/app/**','<%= srcDir %>/app/*','<%= srcDir %>/views/**/*.js'],
+				tasks: ['clean:js', 'concat:app', 'concat:vendorjs']
+			},
+			images: {
+				files: ['<%= srcDir %>/images/**'],
+				tasks: ['clean:images', 'copy:images']
+			},
+			fonts: {
+				files: ['<%= srcDir %>/fonts/**'],
+				tasks: ['clean:fonts', 'copy:fonts']
+			},
+			views: {
+				files: ['<%= srcDir %>/views/**/*.html'],
+				tasks: ['clean:views', 'layout', 'copy:views']
+			},
+			css: {
+				files: ['<%= srcDir %>/css/*.less', '<%= srcDir %>/css/**/*.less'],
+				tasks: ['clean:css', 'concat:vendorcss', 'less']
+			}
+		},
+
+		connect: {
+			server: {
+				options: {
+					port: 8000,
+					base: '<%= appDir %>'
+				}
 			}
 		}
 	});
 
 	// load grunt npm modules
 	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-less');
+	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-connect');
 
 	// build cordova config file
 	grunt.registerTask('config', 'Builds the Cordova configuration file from template.', function() {
@@ -129,6 +212,9 @@ module.exports = function(grunt) {
 		// copy files in www (fonts, ...)
 		grunt.task.run('copy');
 
+		// build all less files
+		grunt.task.run('less');
+
 		// build cordova config.xml file, uses target so we
 		// can switch from production to enterprise for bundle ID
 		grunt.task.run('config');
@@ -136,5 +222,7 @@ module.exports = function(grunt) {
 		// build main index.html file
 		grunt.task.run('layout');
 	});
+
+	grunt.registerTask('dev', ['build', 'connect', 'watch']);
 
 };

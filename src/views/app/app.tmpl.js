@@ -2,7 +2,7 @@ angular.module(_CONTROLLERS_).controller('app', function($scope, $ionicModal) {
 	console.log('### app controller in');
 
 	// Create and load the login modal
-	$ionicModal.fromTemplateUrl('/www/views/app/app-login.html', function(modal) {
+	$ionicModal.fromTemplateUrl('/views/app/app-login.html', function(modal) {
 		$scope.loginModal = modal;
 	}, {
 		scope: $scope,
