@@ -1,5 +1,5 @@
-angular.module(_CONTROLLERS_).controller('ProductListController', function($scope, $http) {  
-	console.log('### ProductListControler in');
+angular.module(_CONTROLLERS_).controller('products', function($scope, $http) {  
+	console.log('### products controller in');
 
    // init values
    $scope.isDropdownOpen = false;
@@ -17,5 +17,5 @@ angular.module(_CONTROLLERS_).controller('ProductListController', function($scop
         $scope.products = data;
     });
 
-console.log('### ProductListControler out');
+console.log('### products controller out');
 });

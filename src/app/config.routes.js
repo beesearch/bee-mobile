@@ -8,57 +8,57 @@
 
     // Define routes here.
     $stateProvider
-    .state('home', {
-      url: '/home',
-      templateUrl: 'html/partials/home/index.html',
-      controller: 'HomeController'
+    .state('app-index', {
+      url: '/app-index',
+      templateUrl: 'views/app/app-index.html',
+      controller: 'app-index'
     })
-    .state('login', {
-      url: '/login',
-      templateUrl: 'html/partials/home/login.html',
-      controller: 'HomeLoginController'
+    .state('app-login', {
+      url: '/app-login',
+      templateUrl: 'views/home/app-login.html',
+      controller: 'app-login'
     })
     .state('search', {
       url: '/search',
-      templateUrl: 'html/partials/search/search.html',
-      controller: 'SearchController'
+      templateUrl: 'views/search/search.html',
+      controller: 'search'
     })
     .state('users', {
       url: '/users',
-      templateUrl: 'html/partials/users/list.html',
-      controller: 'UserListController'
+      templateUrl: 'views/users/list.html',
+      controller: 'users'
     })
-    .state('user', {
+    .state('users-detail', {
       url: '/users/:userId',
-      templateUrl: 'html/partials/users/detail.html',
-      controller: 'UserDetailController'
+      templateUrl: 'views/users/users-detail.html',
+      controller: 'users-detail'
     })
     .state('products', {
       url: '/products',
-      templateUrl: 'html/partials/products/list.html',
-      controller: 'ProductListController'
+      templateUrl: 'views/products/products.html',
+      controller: 'products'
     })
-    .state('product', {
+    .state('products-detail', {
       url: '/products/:productId',
-      templateUrl: 'html/partials/products/detail.html',
-      controller: 'ProductDetailController'
+      templateUrl: 'views/products/products-detail.html',
+      controller: 'products-detail'
     })
     .state('contacts', {
       url: '/contacts',
-      templateUrl: 'html/partials/contacts/list.html',
-      controller: 'ContactListController'
+      templateUrl: 'views/contacts/contacts.html',
+      controller: 'contacts'
     })
     .state('notifications', {
       url: '/notifications',
-      templateUrl: 'html/partials/phonegap/notifications.html',
-      controller: 'NotificationsController'
+      templateUrl: 'views/phonegap/notifications.html',
+      controller: 'notifications'
     })
     .state('device', {
       url: '/device',
-      templateUrl: 'html/partials/phonegap/device.html',
-      controller: 'DeviceController'
+      templateUrl: 'views/phonegap/device.html',
+      controller: 'device'
     });
     
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/app-index');
   }
 );

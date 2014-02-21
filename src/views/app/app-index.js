@@ -1,4 +1,4 @@
-angular.module(_CONTROLLERS_).controller('HomeController', function($scope, $ionicModal, oauth2Token) {
+angular.module(_CONTROLLERS_).controller('app-index', function($scope, $ionicModal, oauth2Token) {
 	$scope.text = "Home Page!";
 	oauth2Token.checkLogin();
 

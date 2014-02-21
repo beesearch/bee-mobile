@@ -1,5 +1,6 @@
-angular.module(_CONTROLLERS_).controller('ProductDetailController', function($scope, $routeParams, $http) {  
-	console.log('### ProductDetailController in');
+angular.module(_CONTROLLERS_).controller('products-detail', function($scope, $routeParams, $http) {  
+	console.log('### products-detail controller in');
+
   //var url = 'http://robbeehome.no-ip.biz:3302/album/findAlbumByAlbumId/' + $routeParams.productId;
   var url = 'http://robbeehome.no-ip.biz:3302/album/findAlbumByAlbumId/' + $routeParams.productId;
   $http.get(url).success(function(data) {
@@ -11,5 +12,6 @@ angular.module(_CONTROLLERS_).controller('ProductDetailController', function($sc
   $http.get(url).success(function(data) {
   	$scope.tracks = data;
   });
-  console.log('### ProductDetailController out');
+
+  console.log('### products-detail controller out');
 });

@@ -1,5 +1,5 @@
-angular.module(_CONTROLLERS_).controller('NotificationsController', function($scope, notificationService) {
-	console.log('### NotificationController in');
+angular.module(_CONTROLLERS_).controller('notifications', function($scope, notificationService) {
+	console.log('### notifications controller in');
 	
 	$scope.alertNotify = function() {
 		notificationService.alert("Sample Alert",function() {console.log("Alert success")},"My Alert","Close");
@@ -26,5 +26,5 @@ angular.module(_CONTROLLERS_).controller('NotificationsController', function($sc
 		notificationService.beep(2);
 	};
 
-	console.log('### NotificationController out');
+	console.log('### notifications controller out');
 });

@@ -1,5 +1,5 @@
-angular.module(_CONTROLLERS_).controller('HomeLoginController', function($scope, oauth2Token) {
-	console.log('### HomeLoginController in');
+angular.module(_CONTROLLERS_).controller('app-login', function($scope, oauth2Token) {
+	console.log('### app-login controller in');
 
 	$scope.username = window.localStorage.getItem("username");
 	$scope.remembermechecked = (window.localStorage.getItem("username") !== '');
@@ -19,5 +19,5 @@ angular.module(_CONTROLLERS_).controller('HomeLoginController', function($scope,
 		};
 	};
 
-	console.log('### HomeLoginController out');
+	console.log('### app-login controller out');
 });

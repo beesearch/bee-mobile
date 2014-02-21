@@ -1,6 +1,6 @@
 
-angular.module(_CONTROLLERS_).controller('SearchController', function($scope, $timeout) {
-	console.log('### SearchController in');
+angular.module(_CONTROLLERS_).controller('search', function($scope, $timeout) {
+	console.log('### search controller in');
 	
 	// Some fake testing data
 	var movies = [
@@ -144,5 +144,5 @@ angular.module(_CONTROLLERS_).controller('SearchController', function($scope, $t
 		}, 1000);
 	}
 
-  console.log('### SearchController out');
+  console.log('### search controller out');
 });

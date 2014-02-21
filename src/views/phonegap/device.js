@@ -1,7 +1,7 @@
-angular.module(_CONTROLLERS_).controller('DeviceController', function($scope) {
-    console.log('### DeviceController in');
+angular.module(_CONTROLLERS_).controller('device', function($scope) {
+    console.log('### device controller in');
     
     $scope.device = device;
 
-    console.log('### DeviceController out');
+    console.log('### device controller out');
 });

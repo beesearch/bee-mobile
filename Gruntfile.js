@@ -16,13 +16,13 @@ module.exports = function(grunt) {
 		concat: {
 			app: {
 				files: {
-					'<%= appDir %>/js/app.js' : 		['<%= srcDir %>/app/app.js', '<%= srcDir %>/app/pg.js'],
+					'<%= appDir %>/js/app.js' : 		['<%= srcDir %>/app/pg.js', '<%= srcDir %>/app/app.js'],
 					'<%= appDir %>/js/config.js' :		['<%= srcDir %>/app/config.*.js'],
-					'<%= appDir %>/js/controllers.js' :	['<%= srcDir %>/app/views/**/*.js'],
 					'<%= appDir %>/js/directives.js' :	['<%= srcDir %>/app/directives/*.js', '<%= srcDir %>/js/directives/**/*.js'],
 					'<%= appDir %>/js/filters.js' :		['<%= srcDir %>/app/filters/*.js', '<%= srcDir %>/js/filters/**/*.js'],
 					'<%= appDir %>/js/modules.js' :		['<%= srcDir %>/app/modules/*.js', '<%= srcDir %>/js/modules/**/*.js'],
-					'<%= appDir %>/js/services.js' :	['<%= srcDir %>/app/services/*.js', '<%= srcDir %>/js/services/**/*.js']
+					'<%= appDir %>/js/services.js' :	['<%= srcDir %>/app/services/*.js', '<%= srcDir %>/js/services/**/*.js'],
+					'<%= appDir %>/js/controllers.js' :	['<%= srcDir %>/views/**/*.js']
 				}
 			},
 			vendor: {
@@ -45,6 +45,11 @@ module.exports = function(grunt) {
 			fonts: {
 				files: [
 					{ expand: true, cwd: '<%= bowerDir %>/ionic/release/fonts/', src: ['**'], dest: '<%= appDir %>/fonts/' }
+				]
+			},
+			views: {
+				files: [
+					{ expand: true, cwd: '<%= srcDir %>/views/', src: ['**/*.html'], dest: '<%= appDir %>/views/' }
 				]
 			}
 		},

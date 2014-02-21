@@ -1,5 +1,5 @@
-angular.module(_CONTROLLERS_).controller('UserListController', function($scope, $http) {  
-    console.log('### UserListControler in');
+angular.module(_CONTROLLERS_).controller('users', function($scope, $http) {  
+    console.log('### users controller in');
     
     // init values
     $scope.isDropdownOpen = false;
@@ -15,5 +15,5 @@ angular.module(_CONTROLLERS_).controller('UserListController', function($scope, 
         $scope.users = data;
     });
 
-    console.log('### UserListControler out');
+    console.log('### users controller out');
 });

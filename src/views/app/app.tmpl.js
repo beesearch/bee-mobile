@@ -1,8 +1,8 @@
-angular.module(_CONTROLLERS_).controller('AppController', function($scope, $ionicModal) {
-	console.log('### AppController in');
+angular.module(_CONTROLLERS_).controller('app', function($scope, $ionicModal) {
+	console.log('### app controller in');
 
 	// Create and load the login modal
-	$ionicModal.fromTemplateUrl('/html/partials/home/login.html', function(modal) {
+	$ionicModal.fromTemplateUrl('/www/views/app/app-login.html', function(modal) {
 		$scope.loginModal = modal;
 	}, {
 		scope: $scope,
@@ -22,5 +22,5 @@ angular.module(_CONTROLLERS_).controller('AppController', function($scope, $ioni
 		//setTimeout( function() {$scope.openModal()}, 500);
 	});
 
-	console.log('### AppController in');
+	console.log('### app controller out');
 });
