@@ -204,7 +204,7 @@ module.exports = function(grunt) {
 			, args = this.args;
 
 		// clean up directories
-		grunt.task.run('clean');
+		grunt.task.run('clean:app');
 
 		// concatenate files in www
 		grunt.task.run('concat');
