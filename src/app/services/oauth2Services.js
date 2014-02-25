@@ -7,7 +7,9 @@ angular.module(_SERVICES_).factory('oauth2Token', function($http, $rootScope) {
 	}
 
 	oauth2Token.getAccessToken = function() {
-		return window.localStorage.getItem("access_token");
+		var token = window.localStorage.getItem("access_token");
+		console.log('### oauth2Token.getAccessToken : ' + token);
+		return token;
 	}
 
 	oauth2Token.setRefreshToken = function(token) {
@@ -15,24 +17,28 @@ angular.module(_SERVICES_).factory('oauth2Token', function($http, $rootScope) {
 	}
 
 	oauth2Token.getRefreshToken = function() {
-		return window.localStorage.getItem("refresh_token");
+		var token = window.localStorage.getItem("refresh_token");
+		console.log('### oauth2Token.getRefreshToken : ' + token);
+		return token;
 	}
 
 	oauth2Token.checkLogin = function() {
 		// Check if logged in and fire events
 		if(this.isLoggedIn()) {
+			console.log('### oauth2Token.checkLogin : broadcast user.loggedIn');
 			$rootScope.$broadcast('user.loggedIn');
 		} else {
+			console.log('### oauth2Token.checkLogin : broadcast user.loggedOut');
 			$rootScope.$broadcast('user.loggedOut');
 		}
 	}
 
 	oauth2Token.isLoggedIn = function() {
 		// Check auth token
-		if (oauth2Token.getAccessToken() != null) {
-			return true;
+		if (oauth2Token.getAccessToken() == null) {
+			return false;
 		}
-		return false;
+		return true;
 	}
 
 	oauth2Token.retrieveToken = function(username, password) {

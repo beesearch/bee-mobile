@@ -18,8 +18,8 @@ angular.module(_CONTROLLERS_).controller('app', function($scope, $ionicModal) {
 	};
 
 	$scope.$on('user.loggedOut', function(e) {
+		console.log('### app controller : on user.loggedOut. call $scope.openlogin_click()');
 		$scope.openlogin_click();
-		//setTimeout( function() {$scope.openModal()}, 500);
 	});
 
 	console.log('### app controller out');

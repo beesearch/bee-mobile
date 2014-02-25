@@ -29,14 +29,10 @@ angular.module(_APP_, [
   'ionic'
 ]);
 
-angular.module(_APP_).run([
-  '$rootScope',
-  function($rootScope) {
+// intial run code here
+angular.module(_APP_).run(function($rootScope) {
 
-    // intial run code here
-
-  }
-]);
+});
 
 // Create global modules. You shouldn't have to
 // touch these.
