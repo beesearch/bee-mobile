@@ -1,8 +1,8 @@
-angular.module(_CONTROLLERS_).controller('app', function($scope, $ionicModal) {
-	console.log('### app controller in');
+angular.module(_CONTROLLERS_).controller('index', function($scope, $ionicModal) {
+	console.log('### index controller in');
 
 	// Create and load the login modal
-	$ionicModal.fromTemplateUrl('/views/app/app-login.html', function(modal) {
+	$ionicModal.fromTemplateUrl('views/app/app-login.html', function(modal) {
 		$scope.loginModal = modal;
 	}, {
 		scope: $scope,
@@ -18,9 +18,9 @@ angular.module(_CONTROLLERS_).controller('app', function($scope, $ionicModal) {
 	};
 
 	$scope.$on('user.loggedOut', function(e) {
-		console.log('### app controller : on user.loggedOut. call $scope.openlogin_click()');
+		console.log('### index controller : Received user.loggedOut event.');
 		$scope.openlogin_click();
 	});
 
-	console.log('### app controller out');
+	console.log('### index controller out');
 });

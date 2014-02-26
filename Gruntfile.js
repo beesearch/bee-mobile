@@ -22,7 +22,7 @@ module.exports = function(grunt) {
 					'<%= appDir %>/js/filters.js' :		['<%= srcDir %>/app/filters/*.js', '<%= srcDir %>/js/filters/**/*.js'],
 					'<%= appDir %>/js/modules.js' :		['<%= srcDir %>/app/modules/*.js', '<%= srcDir %>/js/modules/**/*.js'],
 					'<%= appDir %>/js/services.js' :	['<%= srcDir %>/app/services/*.js', '<%= srcDir %>/js/services/**/*.js'],
-					'<%= appDir %>/js/controllers.js' :	['<%= srcDir %>/views/**/*.js']
+					'<%= appDir %>/js/controllers.js' :	['<%= srcDir %>/views/index.tmpl.js', '<%= srcDir %>/views/**/*.js']
 				}
 			},
 			vendorjs: {
@@ -91,7 +91,7 @@ module.exports = function(grunt) {
 
 		layout: {
 			options: {
-				layout: '<%= srcDir %>/views/app/app.tmpl.html',
+				layout: '<%= srcDir %>/views/index.tmpl.html',
 				dest: '<%= appDir %>/index.html',
 			}
 		},
