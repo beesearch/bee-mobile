@@ -16,7 +16,7 @@ module.exports = function(grunt) {
 		concat: {
 			app: {
 				files: {
-					'<%= appDir %>/js/app.js' : 		['<%= srcDir %>/app/pg.js', '<%= srcDir %>/app/app.js'],
+					'<%= appDir %>/js/app.js' : 		['<%= srcDir %>/app/app.js'],
 					'<%= appDir %>/js/config.js' :		['<%= srcDir %>/app/config.*.js'],
 					'<%= appDir %>/js/directives.js' :	['<%= srcDir %>/app/directives/*.js', '<%= srcDir %>/js/directives/**/*.js'],
 					'<%= appDir %>/js/filters.js' :		['<%= srcDir %>/app/filters/*.js', '<%= srcDir %>/js/filters/**/*.js'],
