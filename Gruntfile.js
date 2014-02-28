@@ -22,33 +22,15 @@ module.exports = function(grunt) {
 					'<%= appDir %>/js/filters.js' :		['<%= srcDir %>/app/filters/*.js', '<%= srcDir %>/js/filters/**/*.js'],
 					'<%= appDir %>/js/modules.js' :		['<%= srcDir %>/app/modules/*.js', '<%= srcDir %>/js/modules/**/*.js'],
 					'<%= appDir %>/js/services.js' :	['<%= srcDir %>/app/services/*.js', '<%= srcDir %>/js/services/**/*.js'],
-					'<%= appDir %>/js/controllers.js' :	['<%= srcDir %>/views/index.tmpl.js', '<%= srcDir %>/views/**/*.js']
-				}
-			},
-			vendorjs: {
-				files: {
-					'<%= appDir %>/js/vendor.js' : [
-						// add any Bower components here
-						'<%= bowerDir %>/ionic/release/js/ionic.js',
-						'<%= bowerDir %>/angular/angular.js',
-						'<%= bowerDir %>/angular-animate/angular-animate.js',
-						'<%= bowerDir %>/angular-sanitize/angular-sanitize.js',
-						'<%= bowerDir %>/angular-ui-router/release/angular-ui-router.js',
-						'<%= bowerDir %>/ionic/release/js/ionic-angular.js'
-					]
-				}
-			},
-			vendorcss: {
-				files: {
-					'<%= appDir %>/css/vendor.css': '<%= bowerDir %>/ionic/release/css/ionic.css'
+					'<%= appDir %>/js/controllers.js' :	['<%= srcDir %>/index.tmpl.js', '<%= srcDir %>/views/**/*.js']
 				}
 			}
 		},
 
 		copy: {
-			fonts: {
+			libs: {
 				files: [
-					{ expand: true, cwd: '<%= bowerDir %>/ionic/release/fonts/', src: ['**'], dest: '<%= appDir %>/fonts/' }
+					{ expand: true, cwd: '<%= bowerDir %>/', src: ['**'], dest: '<%= appDir %>/lib/' }
 				]
 			},
 			images: {
@@ -59,6 +41,11 @@ module.exports = function(grunt) {
 			views: {
 				files: [
 					{ expand: true, cwd: '<%= srcDir %>/views/', src: ['**/*.html'], dest: '<%= appDir %>/views/' }
+				]
+			},
+			config: {
+				files: [
+					{ src: '<%= srcDir %>/config.xml', dest: '<%= appDir %>/config.xml' }
 				]
 			}
 		},
@@ -82,16 +69,10 @@ module.exports = function(grunt) {
 			}
 		},
 
-		config: {
-			options: {
-				template: '<%= srcDir %>/config.tmpl.xml',
-				dest: '<%= appDir %>/config.xml'
-			}
-		},
-
+		// layout template
 		layout: {
 			options: {
-				layout: '<%= srcDir %>/views/index.tmpl.html',
+				layout: '<%= srcDir %>/index.tmpl.html',
 				dest: '<%= appDir %>/index.html',
 			}
 		},
@@ -110,9 +91,6 @@ module.exports = function(grunt) {
 			js: {
 				src: ['<%= appDir %>/js']
 			},
-			fonts: {
-				src: ['<%= appDir %>/fonts']
-			},
 			images: {
 				src: ['<%= appDir %>/images']
 			},
@@ -124,8 +102,8 @@ module.exports = function(grunt) {
 		// watch files, build on the fly for development
 		watch: {
 			config: {
-				files: ['<%= srcDir %>/*'],
-				tasks: ['config']
+				files: ['<%= srcDir %>/config.xml'],
+				tasks: ['copy:config']
 			},
 			scripts: {
 				files: ['<%= srcDir %>/app/**','<%= srcDir %>/app/*','<%= srcDir %>/views/**/*.js'],
@@ -134,10 +112,6 @@ module.exports = function(grunt) {
 			images: {
 				files: ['<%= srcDir %>/images/**'],
 				tasks: ['clean:images', 'copy:images']
-			},
-			fonts: {
-				files: ['<%= srcDir %>/fonts/**'],
-				tasks: ['clean:fonts', 'copy:fonts']
 			},
 			views: {
 				files: ['<%= srcDir %>/views/**/*.html'],
@@ -166,20 +140,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-connect');
-
-	// build cordova config file
-	grunt.registerTask('config', 'Builds the Cordova configuration file from template.', function() {
-
-		var opts = this.options()
-			, target = this.target
-			, template = grunt.template.process(grunt.file.read(opts.template), {
-				data: { target: target, appName: _APP_NAME_ }
-			});
-
-		// generate main index.html file
-		grunt.file.write(opts.dest, template);
-		grunt.log.write('Generating ' + opts.dest + '...').ok();
-	});
 
 	// build HTML files based on target
 	grunt.registerTask('layout', 'Builds an HTML file for angular.', function() {
@@ -214,10 +174,6 @@ module.exports = function(grunt) {
 
 		// build all less files
 		grunt.task.run('less');
-
-		// build cordova config.xml file, uses target so we
-		// can switch from production to enterprise for bundle ID
-		grunt.task.run('config');
 
 		// build main index.html file
 		grunt.task.run('layout');
