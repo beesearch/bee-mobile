@@ -114,7 +114,7 @@ module.exports = function(grunt) {
 				tasks: ['clean:images', 'copy:images']
 			},
 			views: {
-				files: ['<%= srcDir %>/views/**/*.html'],
+				files: ['<%= srcDir %>/index.tmpl.html', '<%= srcDir %>/views/**/*.html'],
 				tasks: ['clean:views', 'layout', 'copy:views']
 			},
 			css: {

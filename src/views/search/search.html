@@ -1,12 +1,12 @@
-<view title="'Recherche'">
-	<content has-header="true" padding="true" on-infinite-scroll="loadMore">
+<ion-view title="'Recherche'">
+	<ion-content has-header="true" padding="true" on-infinite-scroll="loadMore">
 
-		<list>
-			<item ng-repeat="movie in movies" href="#/movie/{{movie.id}}" type="item-link">
+		<ion-list>
+			<ion-item ng-repeat="movie in movies" href="#/movie/{{movie.id}}" type="item-link">
 				{{ movie.title }}
-			</item>
-		</list>
-		<infinite-scroll></infinite-scroll>
+			</ion-item>
+		</ion-list>
+		<ion-infinite-scroll></ion-infinite-scroll>
 
-	</content>
-</view>
+	</ion-content>
+</ion-view>
