@@ -1,11 +1,16 @@
 angular.module(_CONTROLLERS_).controller('app-login', function($scope, oauth2Token) {
 	console.log('### app-login controller in');
 
-	$scope.username = window.localStorage.getItem("username");
+	$scope.user = {
+		username: window.localStorage.getItem("username"),
+		password: null
+	};
+
 	$scope.remembermechecked = (window.localStorage.getItem("username") !== '');
 
 	$scope.signin_click = function() {
-		oauth2Token.retrieveToken($scope.username, $scope.password);
+		console.log("username: " + $scope.user.username + ", password: " + $scope.user.password);
+		oauth2Token.retrieveToken($scope.user.username, $scope.user.password);
 	};
 
 	$scope.rememberme_change = function() {

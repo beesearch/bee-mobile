@@ -5,7 +5,7 @@
  *
  */
 // Interceptor catching 401 responses
-angular.module(_APP_).config(function($httpProvider) {
+angular.module(_APP_).config(function($httpProvider, oauth2Token) {
   var responseInterceptor = function($q) {
     return {
 
@@ -18,9 +18,9 @@ angular.module(_APP_).config(function($httpProvider) {
         // do something on error
         console.log('HTTP interceptor responseError:' + JSON.stringify(response));
         if(response.status === 401){
-          // TODO: Refresh token?
-
-          // Display login modal
+          
+          // Try to obtain a Refresh token
+          oauth2Token.retrieveRefreshToken();
 
           return $q.reject(response);
         } else {

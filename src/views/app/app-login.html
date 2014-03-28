@@ -1,32 +1,25 @@
 <div class="modal" ng-controller="app-login">
 
 	<!-- Modal header bar -->
-	<header class="bar bar-header bar-secondary">
-		<h1 class="title">Login</h1>
-	</header>
+	<ion-header-bar title="'Sign In'" type="bar-positive" align-title="center"></ion-header-bar>
 
 	<!-- Modal content area -->
 	<ion-content has-header="true" padding="true">
-		<div class="list list-inset">
+		<form class="list">
+			<div class="item item-divider">
+				Please provide your user name and password below
+			</div>
+			<div>{{message}}</div>
 			<label class="item item-input">
-				<span class="input-label">Username</span>
-				<input type="text" ng-model="username" placeholder="Username" required />
+				<input type="text" placeholder="Username" ng-model="user.username" required>
 			</label>
 			<label class="item item-input">
-				<span class="input-label">Password</span>
-				<input type="password" ng-model="password" placeholder="Password" required />
+				<input type="password" placeholder="Password" ng-model="user.password" required>
 			</label>
-			<label class="item item-checkbox">
-				<label class="checkbox">
-					<input type="checkbox" ng-model="rememberme" ng-checked="remembermechecked" ng-change="rememberme_change()">
-				</label>
-				Remember me
-			</label>
-		</div>
-
-		<div class="padding">
-			<button class="button button-block button-positive" ng-click="closelogin_click()">Sign In</button>
-		</div>
+			<div class="padding">
+				<button class="button button-block button-positive" ng-click="signin_click()">Sign In</button>
+			</div>
+		</form>
 	</ion-content>
 
 </div>

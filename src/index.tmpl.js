@@ -1,4 +1,4 @@
-angular.module(_CONTROLLERS_).controller('index', function($scope, $ionicModal) {
+angular.module(_CONTROLLERS_).controller('index', function($scope, $ionicModal, oauth2Token) {
 	console.log('### index controller in');
 
 	// Create and load the login modal
@@ -6,20 +6,23 @@ angular.module(_CONTROLLERS_).controller('index', function($scope, $ionicModal) 
 		$scope.loginModal = modal;
 	}, {
 		scope: $scope,
-		animation: 'slide-in-up'
+		animation: 'slide-in-up',
+		focusFirstInput: true
 	});
 
-	$scope.openlogin_click = function() {
+	$scope.$on('event:auth-loginRequired', function(e, rejection) {
+		console.log('### index controller : Received event:auth-loginRequired event.');
 		$scope.loginModal.show();
-	};
+	});
 
-	$scope.closelogin_click = function() {
+	$scope.$on('event:auth-loginConfirmed', function() {
+		console.log('### index controller : Received event:auth-loginConfirmed event.');
 		$scope.loginModal.hide();
-	};
+	});
 
-	$scope.$on('user.loggedOut', function(e) {
-		console.log('### index controller : Received user.loggedOut event.');
-		$scope.openlogin_click();
+	//Be sure to cleanup the modal by removing it from the DOM
+	$scope.$on('$destroy', function() {
+		$scope.loginModal.remove();
 	});
 
 	console.log('### index controller out');
