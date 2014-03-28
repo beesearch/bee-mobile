@@ -106,8 +106,8 @@ module.exports = function(grunt) {
 				tasks: ['copy:config']
 			},
 			scripts: {
-				files: ['<%= srcDir %>/app/**','<%= srcDir %>/app/*','<%= srcDir %>/views/**/*.js'],
-				tasks: ['clean:js', 'concat:app', 'concat:vendorjs']
+				files: ['<%= srcDir %>/*.js','<%= srcDir %>/views/**/*.js'],
+				tasks: ['clean:js', 'concat:app']
 			},
 			images: {
 				files: ['<%= srcDir %>/images/**'],
