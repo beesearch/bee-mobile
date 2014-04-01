@@ -5,7 +5,7 @@
  *
  */
 // Interceptor catching 401 responses
-angular.module(_APP_).config(function($httpProvider, oauth2Token) {
+angular.module(_APP_).config(function($httpProvider) {
   var responseInterceptor = function($q) {
     return {
 
@@ -13,8 +13,8 @@ angular.module(_APP_).config(function($httpProvider, oauth2Token) {
         // do something on success
         return response;
       },
-      
-      responseError: function (response) {
+
+      responseError: function (response, oauth2Token) {
         // do something on error
         console.log('HTTP interceptor responseError:' + JSON.stringify(response));
         if(response.status === 401){
