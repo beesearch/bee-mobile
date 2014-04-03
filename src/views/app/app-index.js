@@ -6,7 +6,6 @@ angular.module(_CONTROLLERS_).controller('app-index', function($scope, oauth2Tok
 
 	$scope.sendrequest_click = function() {
 		$scope.data = Elastic.get();
-		console.log('data: ' + $scope.data);
 	};
 
 	console.log('### app-index controller in');
