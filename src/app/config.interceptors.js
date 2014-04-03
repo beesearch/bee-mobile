@@ -4,9 +4,9 @@
  * Defines the interceptors for the application.
  *
  */
-// Interceptor catching 401 responses
+// Interceptor catching responses
 angular.module(_APP_).config(function($httpProvider) {
-  var responseInterceptor = function($q) {
+  var responseInterceptor = function($q, oauth2Token) {
     return {
 
       response: function (response) {
@@ -14,20 +14,13 @@ angular.module(_APP_).config(function($httpProvider) {
         return response;
       },
 
-      responseError: function (response, oauth2Token) {
-        // do something on error
-        console.log('HTTP interceptor responseError:' + JSON.stringify(response));
-        if(response.status === 401){
-          
-          // Try to obtain a Refresh token
-          oauth2Token.retrieveRefreshToken();
+      responseError: function (response) {
+
+          // Broadcast the error
+          oauth2Token.broadcastError(response.data);
 
           return $q.reject(response);
-        } else {
-          return $q.reject(response);
-        }
       }
-
     }
   };
 

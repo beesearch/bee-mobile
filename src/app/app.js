@@ -26,6 +26,8 @@ angular.module(_APP_, [
 
   // add additional modules here, installed via Bower. Don't forget to add the module
   // to your Gruntfile's bower components if you want to use it!
+  'ngResource',
+  'http-auth-interceptor',
   'ionic'
 ]);
 

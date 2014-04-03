@@ -1,12 +1,12 @@
-angular.module(_CONTROLLERS_).controller('app-index', function($scope, $ionicModal, oauth2Token) {
+angular.module(_CONTROLLERS_).controller('app-index', function($scope, oauth2Token, Elastic) {
 	console.log('### app-index controller in');
 
 	$scope.text = "Home Page!";
 	oauth2Token.checkLogin();
 
-	$scope.openlogin_click = function() {
-		console.log('### app-index controller : call oauth2Token.checkLogin()');
-		oauth2Token.checkLogin();
+	$scope.sendrequest_click = function() {
+		$scope.data = Elastic.get();
+		console.log('data: ' + $scope.data);
 	};
 
 	console.log('### app-index controller in');
