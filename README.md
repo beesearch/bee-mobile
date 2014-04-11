@@ -11,13 +11,13 @@ development build. The build compile files in `src` and copy them in `www`.
 
 ## Enabling Cordova platforms
 
-   cordova platform add ios
+    cordova platform add ios
 
 ## Adding Cordova plugins
 
-   cordova plugin add org.apache.cordova.device
-   cordova plugin add org.apache.cordova.dialogs
-   cordova plugin add org.apache.cordova.vibration
+    cordova plugin add org.apache.cordova.device
+    cordova plugin add org.apache.cordova.dialogs
+    cordova plugin add org.apache.cordova.vibration
 
 ## Get Started
 
