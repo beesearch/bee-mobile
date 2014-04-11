@@ -1,28 +1,27 @@
 # Bee Mobile
 
 ## Installing app
+
 Clone this project, then lauch :
 
-    npm install && bower install && grunt build:development
+    npm install && bower install && grunt build
 
 It will install npm dependencies, bower dependencies et run the first
 development build. The build compile files in `src` and copy them in `www`.
 
-## Building app
+## Enabling Cordova platforms
 
-    phonegap remote login --username *address*@gmail.com --password *password*
-    phonegap remote build android
+   cordova platform add ios
 
-## Adding phonegap plugins
+## Adding Cordova plugins
 
-Phonegap plugins are added in the src/config.tmpl.xml
-
-Fora list of phonegap plugins:
-https://build.phonegap.com/plugins
+   cordova plugin add org.apache.cordova.device
+   cordova plugin add org.apache.cordova.dialogs
+   cordova plugin add org.apache.cordova.vibration
 
 ## Get Started
 
-Start the developement watch process to build on-the-fly. When launched,
+Start the development watch process to build on-the-fly. When launched,
 it will build the project (development target), launch a web-server and
 start watching for changes. Modifying files should happen inside the `src`
 directory, not the `www` directory.
@@ -33,16 +32,13 @@ You can now test the project on your browser, using url: `http://localhost:8000`
 
 When you change any file in the `src` directory, grunt will notice and
 recompile the proper files and place them into the `www` directory. The
-`www` directory is then later used by phonegap to prepare the application
+`www` directory is then later used by Cordova to prepare the application
 to be copied over to the device (or simulator).
 
-If you want to rebuild the entire project, use the following commands:
+## Building app
 
-    grunt build:development
+If you want to rebuild the entire project to emulate, use the following commands:
 
-or
-
-    grunt build:production
-
-The latter will use UglifyJS to minify your files, setting them up for
-production.
+    grunt build
+    cordova build ios
+    cordova emulate ios
