@@ -82,14 +82,14 @@ angular.module(_SERVICES_).factory('oauth2Token', function($rootScope) {
 	return oauth2Token;
 });
 
-angular.module(_SERVICES_).factory('oauth2Caller', function($http, $rootScope, oauth2Token) {
+angular.module(_SERVICES_).factory('oauth2Caller', function($http, $rootScope, oauth2Token, BACKEND_PROTOCOL, BACKEND_HOST, BACKEND_PORT) {
 	var oauth2Caller = {};
 
 	oauth2Caller.retrieveToken = function(username, password) {
 		console.log('### oauth2Caller.retrieveToken : Authenticating user ' + username);
 		$http({
 			method: 'POST',
-			url: 'http://localhost:8080/oauth/token',
+			url: BACKEND_PROTOCOL + '://' + BACKEND_HOST + ':' + BACKEND_PORT + '/oauth/token',
 			headers: {'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': 'Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW'},
 			data: 'grant_type=password&username=' + username + '&password=' + password
 		}).success(function(data, status, headers, config) {
@@ -98,7 +98,7 @@ angular.module(_SERVICES_).factory('oauth2Caller', function($http, $rootScope, o
 			oauth2Token.setRefreshToken(data.refresh_token);
 			$rootScope.$broadcast('event:auth-loginConfirmed');
 		}).error(function(data, status, headers, config) {
-			console.log('### oauth2Caller.retrieveToken : Authentication failed (' + data.error_description + ')');
+			console.log('### oauth2Caller.retrieveToken : Authentication failed (' + data.error.error_description + ')');
 		});
 	}
 
@@ -107,17 +107,16 @@ angular.module(_SERVICES_).factory('oauth2Caller', function($http, $rootScope, o
 		console.log('### oauth2Caller.tryRefreshToken : Refreshing auth with token ' + oauth2Token.getRefreshToken());
 		$http({
 			method: 'POST',
-			url: 'http://localhost:8080/oauth/token',
+			url: BACKEND_PROTOCOL + '://' + BACKEND_HOST + ':' + BACKEND_PORT + '/oauth/token',
 			headers: {'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': 'Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW'},
 			data: 'grant_type=refresh_token&refresh_token=' + oauth2Token.getRefreshToken()
 		}).success(function(data, status, headers, config) {
 			console.log('### oauth2Caller.tryRefreshToken : Tokens refreshed!');
-			console.log("data: " + JSON.stringify(data) + ", status: " + status);
 			oauth2Token.setAccessToken(data.access_token);
 			oauth2Token.setRefreshToken(data.refresh_token);
 			$rootScope.$broadcast('event:auth-loginConfirmed');
 		}).error(function(data, status, headers, config) {
-			console.log("data: " + JSON.stringify(data) + ", status: " + status + ", config: " + JSON.stringify(config));
+			console.log('### oauth2Caller.tryRefreshToken : Authentication failed (' + data.error.error_description + ')');
 			oauth2Token.logout();
 		});
 	}

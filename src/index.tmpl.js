@@ -22,7 +22,7 @@ angular.module(_CONTROLLERS_).controller('index', function($scope, $ionicModal, 
 
 	$scope.$on('event:auth-errorReceived', function(event, error) {
 		console.log('### index controller : Received event:auth-errorReceived event. (error: ' + JSON.stringify(error) + ')');
-		if (error.code === 400) {
+		if (error.code === 401) {
 			oauth2Caller.tryRefreshToken()
 		}
 	});

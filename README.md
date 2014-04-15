@@ -19,7 +19,16 @@ development build. The build compile files in `src` and copy them in `www`.
     cordova plugin add org.apache.cordova.dialogs
     cordova plugin add org.apache.cordova.vibration
 
-## Get Started
+## Configuring environment
+
+The backend protocol (http or https), DNS and port should be configured in `src/app/config.constants.js` file.
+
+    angular.module(_APP_)
+      .constant('BACKEND_PROTOCOL','http')
+      .constant('BACKEND_HOST','localhost')
+      .constant('BACKEND_PORT','8080');
+
+## Running app in the browser
 
 Start the development watch process to build on-the-fly. When launched,
 it will build the project (development target), launch a web-server and
