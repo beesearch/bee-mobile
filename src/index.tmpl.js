@@ -12,20 +12,31 @@ angular.module(_CONTROLLERS_).controller('index', function($scope, $ionicModal, 
 
 	$scope.$on('event:auth-loginRequired', function(e) {
 		console.log('### index controller : Received event:auth-loginRequired event.');
-		$scope.loginModal.show();
+		openLoginModal();
 	});
 
-	$scope.$on('event:auth-loginConfirmed', function() {
+	$scope.$on('event:auth-loginConfirmed', function(e) {
 		console.log('### index controller : Received event:auth-loginConfirmed event.');
-		$scope.loginModal.hide();
+		closeLoginModal();
 	});
 
-	$scope.$on('event:auth-errorReceived', function(event, error) {
+	$scope.$on('event:auth-errorReceived', function(e, error) {
 		console.log('### index controller : Received event:auth-errorReceived event. (error: ' + JSON.stringify(error) + ')');
+		$scope.message = error.error_description;
 		if (error.code === 401) {
 			oauth2Caller.tryRefreshToken()
 		}
 	});
+
+	openLoginModal = function() {
+		$scope.message = '';
+		$scope.loginModal.show();
+	}
+
+	closeLoginModal = function() {
+		$scope.loginModal.hide();
+		$scope.message = '';
+	}
 
 	$scope.logout = function() {
 		oauth2Token.logout();
