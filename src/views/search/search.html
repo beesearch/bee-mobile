@@ -1,12 +1,19 @@
-<ion-view title="'Recherche'">
-	<ion-content has-header="true" padding="true" on-infinite-scroll="loadMore">
+<ion-view title="'Search'">
 
+	<!-- Search header -->
+	<div class="bar bar-subheader bar-positive">
+		<label class=" item-input-wrapper">
+			<i class="icon ion-search placeholder-icon"></i>
+			<input type="text" placeholder="Search...">
+		</label>
+	</div>
+
+	<ion-content>
 		<ion-list>
-			<ion-item ng-repeat="movie in movies" href="#/movie/{{movie.id}}" type="item-link">
-				{{ movie.title }}
+			<ion-item ng-repeat="item in items">
+				{{item.title}}
 			</ion-item>
 		</ion-list>
-		<ion-infinite-scroll></ion-infinite-scroll>
-
 	</ion-content>
+
 </ion-view>

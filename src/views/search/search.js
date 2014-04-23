@@ -2,8 +2,13 @@
 angular.module(_CONTROLLERS_).controller('search', function($scope, $timeout) {
 	console.log('### search controller in');
 	
+	// Search action : call elasticsearch service
+	$scope.search = function() {
+
+	}
+
 	// Some fake testing data
-	var movies = [
+	$scope.items = [
 	{
 		id: 'tt0080487',
 		title: 'Caddyshack',
@@ -126,8 +131,6 @@ angular.module(_CONTROLLERS_).controller('search', function($scope, $timeout) {
 	}
 	];
 
-	$scope.movies = movies;
-
 	// Method called on infinite scroll
 	// Receives a "done" callback to inform the infinite scroll that we are done
 	$scope.loadMore = function(done) {
@@ -144,5 +147,5 @@ angular.module(_CONTROLLERS_).controller('search', function($scope, $timeout) {
 		}, 1000);
 	}
 
-  console.log('### search controller out');
+	console.log('### search controller out');
 });

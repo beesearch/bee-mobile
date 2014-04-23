@@ -1,9 +1,15 @@
 angular.module(_CONTROLLERS_).controller('index', function($scope, $ionicModal, $ionicSideMenuDelegate, $location, oauth2Token, oauth2Caller) {
 	console.log('### index controller in');
 
-	// Search action
-	$scope.search = function() {
+	// Goto action : close side menu then go to page
+	$scope.goTo = function(page) {
+		$ionicSideMenuDelegate.toggleLeft();
+		$location.url('/' + page);
+	};
 
+	// Logout action
+	$scope.logout = function() {
+		oauth2Token.logout();
 	}
 
 	// Create and load the login modal
@@ -46,24 +52,10 @@ angular.module(_CONTROLLERS_).controller('index', function($scope, $ionicModal, 
 		$scope.message = '';
 	}
 
-	$scope.logout = function() {
-		oauth2Token.logout();
-	}
-
 	// Cleanup the modal by removing it from the DOM
 	$scope.$on('$destroy', function() {
 		$scope.loginModal.remove();
 	});
-
-	$scope.toggleLeftSideMenu = function() {
-		$ionicSideMenuDelegate.toggleLeft();
-	};
-
-	$scope.goTo = function(page) {
-		console.log('Going to ' + page);
-		$ionicSideMenuDelegate.toggleLeft();
-		$location.url('/' + page);
-	};
 
 	console.log('### index controller out');
 });
