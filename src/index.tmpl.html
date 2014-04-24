@@ -30,7 +30,10 @@
   <ion-side-menus>
     <!-- Center content -->
     <ion-side-menu-content>
-      <ion-nav-bar type="bar-assertive" back-button-type="button-icon" back-button-icon="ion-arrow-left-c">
+      <ion-nav-bar class="bar-positive" back-button-type="button-icon" back-button-icon="ion-arrow-left-c">
+        <ion-nav-back-button side="left" class="button-icon">
+          <i class="ion-arrow-left-c"></i>
+        </ion-nav-back-button>
         <ion-nav-buttons side="left">
           <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
         </ion-nav-buttons>
@@ -48,6 +51,23 @@
       <!-- Content List -->
       <ion-content>
         <div class="list">
+          
+          <!-- Pages menu -->
+          <div class="item item-divider">
+            Menu
+          </div>
+          <a nav-clear class="item item-icon-left" ng-click="goTo('search')">
+            <i class="icon ion-search"></i>
+            Recherche
+          </a>
+          <a nav-clear class="item item-icon-left" ng-click="goTo('notifications')">
+            <i class="icon ion-alert"></i>
+            Notifications
+          </a>
+          <a nav-clear class="item item-icon-left"  ng-click="goTo('device')">
+            <i class="icon ion-iphone"></i>
+            Device
+          </a>
           <!-- Aspects -->
           <div class="item item-divider">
             Aspects
@@ -82,23 +102,8 @@
               </div>
             </label>
           </div>
-          <!-- Pages menu -->
-          <div class="item item-divider">
-            Menu
-          </div>
-          <a class="item item-icon-left" ng-click="goTo('search')">
-            <i class="icon ion-search"></i>
-            Recherche
-          </a>
-          <a class="item item-icon-left" ng-click="goTo('notifications')">
-            <i class="icon ion-alert"></i>
-            Notifications
-          </a>
-          <a class="item item-icon-left"  ng-click="goTo('device')">
-            <i class="icon ion-iphone"></i>
-            Device
-          </a>
         </div>
+
       </ion-content>
     </ion-side-menu>
   </ion-side-menus>

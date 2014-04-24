@@ -1,12 +1,12 @@
-<ion-view title="'Search'">
+<ion-view title="Recherche">
 
 	<!-- Search header -->
-	<div class="bar bar-subheader bar-positive">
+	<ion-header-bar class="bar-subheader bar-dark">
 		<label class=" item-input-wrapper">
 			<i class="icon ion-search placeholder-icon"></i>
-			<input type="text" placeholder="Search...">
+			<input type="text" ng-model="search" ng-change="search_onchange()" placeholder="Rechercher...">
 		</label>
-	</div>
+	</ion-header-bar>
 
 	<ion-content>
 		<ion-list>
