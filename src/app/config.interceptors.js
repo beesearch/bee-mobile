@@ -16,6 +16,8 @@ angular.module(_APP_).config(function($httpProvider) {
 
       responseError: function (response) {
 
+          console.log("response: " + JSON.stringify(response));
+
           // Broadcast the error
           oauth2Token.broadcastError(response.data.error);
 

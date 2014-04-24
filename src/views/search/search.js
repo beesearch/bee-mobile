@@ -7,6 +7,7 @@ angular.module(_CONTROLLERS_).controller('search', function($scope, $beeElastic)
 		// Prevent from searching an empty string
 		if ($scope.search) {
 			console.log("Searching:" + $scope.search);
+			$scope.items = $beeElastic.query({'search' : $scope.search});
 		} else {
 			// Search string is empty
 			$scope.items = null;
