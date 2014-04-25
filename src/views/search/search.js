@@ -1,7 +1,11 @@
 
-angular.module(_CONTROLLERS_).controller('search', function($scope, $beeElastic) {
+angular.module(_CONTROLLERS_).controller('search', function($scope, $beeElastic, oauth2Token) {
 	console.log('### search controller in');
-	
+
+	// Check login when app is launched
+	// (search is first page displayed)
+	oauth2Token.checkLogin();
+
 	// Search action : call elasticsearch service
 	$scope.search_onchange = function() {
 		// Prevent from searching an empty string

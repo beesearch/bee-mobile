@@ -6,5 +6,5 @@
  */
 angular.module(_APP_)
   .constant('BACKEND_PROTOCOL','http')
-  .constant('BACKEND_HOST','localhost')
-  .constant('BACKEND_PORT','8080');
+  .constant('BACKEND_HOST','bee-backend.herokuapp.com')
+  .constant('BACKEND_PORT','80');

@@ -59,6 +59,6 @@
       controller: 'device'
     });
     
-    $urlRouterProvider.otherwise('/app-index');
+    $urlRouterProvider.otherwise('/search');
   }
 );

@@ -32,8 +32,10 @@ angular.module(_APP_, [
 ]);
 
 // intial run code here
-angular.module(_APP_).run(function($rootScope) {
-
+angular.module(_APP_).run(function($ionicPlatform) {
+  $ionicPlatform.ready(function() {
+    console.log('### ionicPlatform.ready!');
+  });
 });
 
 // Create global modules. You shouldn't have to
