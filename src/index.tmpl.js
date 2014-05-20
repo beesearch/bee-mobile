@@ -18,7 +18,8 @@ angular.module(_CONTROLLERS_).controller('index', function($scope, $ionicModal, 
 	}, {
 		scope: $scope,
 		animation: 'slide-in-up',
-		focusFirstInput: true
+		focusFirstInput: true,
+		backdropClickToClose: false
 	});
 
 	// Event action used when login is required from server
@@ -37,6 +38,9 @@ angular.module(_CONTROLLERS_).controller('index', function($scope, $ionicModal, 
 	$scope.$on('event:auth-errorReceived', function(e, error) {
 		console.log('### index controller : Received event:auth-errorReceived event. (error: ' + JSON.stringify(error) + ')');
 		$scope.message = error.error_description;
+		if (error.code === 400) {
+			openLoginModal();
+		}
 		if (error.code === 401) {
 			oauth2Caller.tryRefreshToken()
 		}
