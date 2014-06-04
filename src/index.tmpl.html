@@ -13,7 +13,6 @@
   <script src="lib/angular-sanitize/angular-sanitize.js"></script>
   <script src="lib/angular-resource/angular-resource.js"></script>
   <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
-  <script src="lib/angular-http-auth/src/http-auth-interceptor.js"></script>
   <script src="lib/ionic/release/js/ionic-angular.js"></script>
 
   <script src="js/app.js"></script>
@@ -51,7 +50,6 @@
       <!-- Content List -->
       <ion-content>
         <div class="list">
-          
           <!-- Pages menu -->
           <div class="item item-divider">
             Menu
@@ -60,21 +58,12 @@
             <i class="icon ion-search"></i>
             Recherche
           </a>
-          <!--<a nav-clear class="item item-icon-left" ng-click="goTo('notifications')">
-            <i class="icon ion-alert"></i>
-            Notifications
-          </a>
-          <a nav-clear class="item item-icon-left"  ng-click="goTo('device')">
-            <i class="icon ion-iphone"></i>
-            Device
-          </a>-->
-          <!-- Aspects -->
           <div class="item item-divider">
-            Aspects
+            Filiales
           </div>
           <div class="item item-icon-left item-toggle">
-            <i class="icon ion-ios7-people"></i>
-            R.H.
+            <i class="icon ion-home"></i>
+              S.N.R.F.
             <label class="toggle">
               <input type="checkbox">
               <div class="track">
@@ -83,8 +72,8 @@
             </label>
           </div>
           <div class="item item-icon-left item-toggle">
-            <i class="icon ion-person"></i>
-            Clients
+            <i class="icon ion-home"></i>
+              F.T.A.
             <label class="toggle">
               <input type="checkbox" checked>
               <div class="track">
@@ -93,8 +82,32 @@
             </label>
           </div>
           <div class="item item-icon-left item-toggle">
-            <i class="icon ion-clipboard"></i>
-            Factures
+            <i class="icon ion-home"></i>
+              Q.N.
+            <label class="toggle">
+              <input type="checkbox" checked>
+              <div class="track">
+                <div class="handle"></div>
+              </div>
+            </label>
+          </div>
+        
+          <div class="item item-divider">
+            Données
+          </div>
+          <div class="item item-icon-left item-toggle">
+            <i class="icon ion-ios7-people"></i>
+              Clients
+            <label class="toggle">
+              <input type="checkbox">
+              <div class="track">
+                <div class="handle"></div>
+              </div>
+            </label>
+          </div>
+          <div class="item item-icon-left item-toggle">
+            <i class="icon ion-ios7-pricetag"></i>
+              Produits
             <label class="toggle">
               <input type="checkbox" checked>
               <div class="track">
@@ -103,7 +116,6 @@
             </label>
           </div>
         </div>
-
       </ion-content>
     </ion-side-menu>
   </ion-side-menus>
