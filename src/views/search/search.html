@@ -9,9 +9,44 @@
 	</ion-header-bar>
 
 	<ion-content>
-		<ion-list>
-			<ion-item ng-repeat="item in items">
-				{{item.text}} (now: {{item.now}})
+		<ion-list animation="slide-in-right">
+			<ion-item ng-repeat="item in items | orderBy:item._score" ng-switch="item._type">
+				<div ng-switch-when="customer">
+					<div class="item">
+						<h2>{{item._source.company.name}}</h2>
+					</div>
+					<div class="item item-avatar">
+						<img src="{{item._source.contact.sales.avatar}}">
+						<h2>Commercial</h2>
+						<p>{{item._source.contact.sales.firstName}} {{item._source.contact.sales.lastName}}</p>
+					</div>
+					<div class="item item-avatar">
+						<img src="{{item._source.contact.admin.avatar}}">
+						<h2>Administrateur</h2>
+						<p>{{item._source.contact.admin.firstName}} {{item._source.contact.admin.lastName}}</p>
+					</div>
+					<div class="item item-avatar">
+						<img src="{{item._source.contact.technical.avatar}}">
+						<h2>Technicien</h2>
+						<p>{{item._source.contact.technical.firstName}} {{item._source.contact.technical.lastName}}</p>
+					</div>
+					<a class="item item-icon-left assertive" href="#">
+						<i class="icon ion-search"></i>
+						Afficher
+					</a>
+				</div>
+				<div ng-switch-when="product">
+					<div class="item">
+						<h2>{{item._source.name}}</h2>
+						<p>Dimension : (l) {{item._source.width}} x (h) {{item._source.height}}</p>
+						<p>Poid : {{item._source.weight}}kg</p>
+						<p>prix : {{item._source.price}} €</p>
+					</div>
+					<a class="item item-icon-left assertive" href="#">
+						<i class="icon ion-search"></i>
+						Afficher
+					</a>
+				</div>
 			</ion-item>
 		</ion-list>
 	</ion-content>
