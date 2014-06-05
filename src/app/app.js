@@ -33,7 +33,18 @@ angular.module(_APP_, [
 // intial run code here
 angular.module(_APP_).run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
-    console.log('### ionicPlatform.ready!');
+    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+    // for form inputs)
+    if(window.cordova && window.cordova.plugins.Keyboard) {
+      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      console.log('### cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true) -> ok');
+    }
+    if(window.StatusBar) {
+      // Set the statusbar to use the default style, tweak this to
+      // remove the status bar on iOS or change it to use white instead of dark colors.
+      StatusBar.styleDefault();
+      console.log('### StatusBar.styleDefault(); -> ok');
+    }
   });
 });
 
