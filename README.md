@@ -19,6 +19,8 @@ development build. The build compile files in `src` and copy them in `www`.
     cordova plugin add org.apache.cordova.device
     cordova plugin add org.apache.cordova.statusbar
 
+
+
 ## Configuring environment
 
 The backend protocol (http or https), DNS and port should be configured in `src/app/config.constants.js` file.
@@ -51,3 +53,10 @@ If you want to rebuild the entire project to emulate, use the following commands
     grunt build
     cordova build ios
     cordova emulate ios
+
+## Building app to iOS
+
+For iOS you need to add this two lines in the plist file to hide the status bar
+
+    Status bar is initially hidden = YES
+    View controller-based status bar appearance = NO

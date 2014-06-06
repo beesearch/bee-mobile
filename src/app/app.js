@@ -33,6 +33,8 @@ angular.module(_APP_, [
 // intial run code here
 angular.module(_APP_).run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
+    //StatusBar.hide();
+    console.log('### statusbar hide');
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if(window.cordova && window.cordova.plugins.Keyboard) {

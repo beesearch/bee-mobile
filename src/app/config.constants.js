@@ -6,5 +6,5 @@
  */
 angular.module(_APP_)
   .constant('BACKEND_PROTOCOL','http')
-  .constant('BACKEND_HOST','localhost')
-  .constant('BACKEND_PORT','8080');
+  .constant('BACKEND_HOST','92.222.46.39')
+  .constant('BACKEND_PORT','8081');
