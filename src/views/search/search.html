@@ -11,8 +11,20 @@
 		<ion-list animation="slide-in-right">
 			<ion-item ng-repeat="item in items | orderBy:item._score" ng-switch="item._type">
 				<div ng-switch-when="customer">
+					<div class="item item-divider">
+						<div class="row">
+						  <div class="col-75">
+							<h2>{{item._source.company.name}}</h2>
+							<h3>{{item._source.commercialAddress.city}} - {{item._source.commercialAddress.zip}}</h3>
+							<p>{{item._source.commercialAddress.state}}</p>
+						  </div>
+						  <div class="col">
+							<img src="images/icon-{{item._index}}.png" width="100">
+						  </div>
+						</div>	
+					</div>
 					<div class="item">
-						<h2>{{item._source.company.name}}</h2>
+						<p>Siren : {{item._source.company.siren}}</p>
 					</div>
 					<div class="item item-avatar">
 						<img src="{{item._source.contact.sales.avatar}}">
