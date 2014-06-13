@@ -17,9 +17,6 @@ development build. The build compile files in `src` and copy them in `www`.
 
     cordova plugin add https://github.com/driftyco/ionic-plugins-keyboard.git
     cordova plugin add org.apache.cordova.device
-    cordova plugin add org.apache.cordova.statusbar
-
-
 
 ## Configuring environment
 

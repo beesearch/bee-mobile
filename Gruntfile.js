@@ -30,6 +30,11 @@ module.exports = function(grunt) {
 					{ expand: true, cwd: '<%= bowerDir %>/', src: ['**'], dest: '<%= appDir %>/lib/' }
 				]
 			},
+			css: {
+				files: [
+					{ src: '<%= srcDir %>/css/style.css', dest: '<%= appDir %>/css/style.css' }
+				]
+			},
 			images: {
 				files: [
 					{ expand: true, cwd: '<%= srcDir %>/images/', src: ['**'], dest: '<%= appDir %>/images/' }
@@ -44,25 +49,6 @@ module.exports = function(grunt) {
 				files: [
 					{ src: '<%= srcDir %>/config.xml', dest: '<%= appDir %>/config.xml' }
 				]
-			}
-		},
-
-		// compile LESS files into CSS and store them in temp directories
-		less: {
-			options: {
-				paths: [
-					// add any additional paths to LESS components here
-					"<%= srcDir %>/css/config"
-				]
-			},
-			app: {
-				files: {
-					// put app.css directly into the build directory for development
-					"<%= appDir %>/css/app.css": [
-						"<%= srcDir %>/css/common/*.less",
-						"<%= srcDir %>/css/*.less"
-					]
-				}
 			}
 		},
 
@@ -115,8 +101,8 @@ module.exports = function(grunt) {
 				tasks: ['clean:views', 'layout', 'copy:views']
 			},
 			css: {
-				files: ['<%= srcDir %>/css/*.less', '<%= srcDir %>/css/**/*.less'],
-				tasks: ['clean:css', 'concat:vendorcss', 'less']
+				files: ['<%= srcDir %>/css/style.css'],
+				tasks: ['clean:css', 'copy:css']
 			}
 		},
 
@@ -134,7 +120,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-copy');
-	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-connect');
 
@@ -168,9 +153,6 @@ module.exports = function(grunt) {
 
 		// copy files in www (fonts, ...)
 		grunt.task.run('copy');
-
-		// build all less files
-		grunt.task.run('less');
 
 		// build main index.html file
 		grunt.task.run('layout');
