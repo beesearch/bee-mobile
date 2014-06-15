@@ -1,4 +1,4 @@
-angular.module(_CONTROLLERS_).controller('company', function($scope, $beeTagCloud, oauth2Token, limitToFilter) {
+angular.module(_CONTROLLERS_).controller('company', function($scope, $ES_TopFiveProduct, oauth2Token, limitToFilter) {
 	console.log('### company controller in');
 
 	// Check login when app is launched
