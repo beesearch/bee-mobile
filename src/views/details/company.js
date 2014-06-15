@@ -10,7 +10,7 @@ angular.module(_CONTROLLERS_).controller('company', function($scope, $beeTagClou
 	if ($scope.search) {
 		console.log("Searching:" + $scope.search);
 		
-		var result = $beeTagCloud.query({'search' : $scope.search});
+		var result = $ES_TopFiveProduct.query({'search' : $scope.search});
 		result.$promise.then(function() {
 			$scope.ideas = [];
 			$.each(result, function(i, obj) {
