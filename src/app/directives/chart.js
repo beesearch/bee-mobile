@@ -8,9 +8,7 @@ angular.module(_DIRECTIVES_).directive('hcPie', function() {
       items: '='
     },
     controller: function ($scope, $element, $attrs) {
-      console.log("TEST");
       console.log(2);
-
     },
     template: '<div id="container" style="margin: 0 auto">not working</div>',
     link: function (scope, element, attrs) {
