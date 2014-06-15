@@ -21,11 +21,12 @@ angular.module(_DIRECTIVES_).directive('hcPie', function() {
           plotShadow: false
         },
         title: {
-          text: 'Browser market shares at a specific website, 2010'
+          text: 'Top 5 produits'
         },
         tooltip: {
-          pointFormat: '{series.name}: <b>{point.percentage}%</b>',
-          percentageeDecimals: 2
+            formatter: function () {
+                           return this.point.name + ': <b>' + Highcharts.numberFormat(this.percentage, 1) + '%</b>';
+                       }
         },
         plotOptions: {
           pie: {
@@ -38,7 +39,7 @@ angular.module(_DIRECTIVES_).directive('hcPie', function() {
               distance: -40,
               color:'white',
               formatter: function () {
-                        return Math.round(this.percentage*100)/100 + ' %';
+                        return this.point.name;
               }
             }
           }
