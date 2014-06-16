@@ -36,7 +36,7 @@ angular.module(_CONTROLLERS_).controller('company', function($scope, $ES_TopFive
 	if ($scope.search) {
 		console.log("Searching:" + $scope.search);
 		
-		/*var result = $ES_TopFiveProduct.query({'search' : $scope.search});
+		var result = $ES_TopFiveProduct.query({'search' : $scope.search});
 		result.$promise.then(function() {
 			console.log(JSON.stringify(result));
 			$scope.topFivePieChart.series[0].data = [];
@@ -50,7 +50,7 @@ angular.module(_CONTROLLERS_).controller('company', function($scope, $ES_TopFive
 
 			console.log(JSON.stringify($scope.topFivePieChart.series));
 			$scope.topFivePieChart.loading = false;
-		});*/
+		});
 
 	} else {
 		// Search string is empty
