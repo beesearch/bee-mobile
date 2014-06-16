@@ -1,4 +1,3 @@
-
 angular.module(_SERVICES_).factory('cordovaReady', function() {
   return function (fn) {
     var queue = [];
