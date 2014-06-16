@@ -27,14 +27,13 @@ angular.module(_APP_, [
   // add additional modules here, installed via Bower. Don't forget to add the module
   // to your Gruntfile's bower components if you want to use it!
   'ngResource',
-  'ionic'
+  'ionic',
+  'highcharts-ng'
 ]);
 
 // intial run code here
 angular.module(_APP_).run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
-    //StatusBar.hide();
-    console.log('### statusbar hide');
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if(window.cordova && window.cordova.plugins.Keyboard) {

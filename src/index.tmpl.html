@@ -5,11 +5,7 @@
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
   <title><%= appName %></title>
 
-  <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-  <script src="http://code.highcharts.com/highcharts.js"></script>
-  <script src="http://code.highcharts.com/highcharts-more.js"></script>
-
-  <!-- <link href="css/style.css" rel="stylesheet"> -->
+  <link href="css/style.css" rel="stylesheet">
   <link href="lib/ionic/release/css/ionic.min.css" rel="stylesheet">
 
   <script src="lib/ionic/release/js/ionic.js"></script>
@@ -19,17 +15,18 @@
   <script src="lib/angular-resource/angular-resource.js"></script>
   <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
   <script src="lib/ionic/release/js/ionic-angular.js"></script>
-
+  <script src="lib/jquery/dist/jquery.min.js"></script>
+  <script src="lib/highcharts-release/highcharts.js"></script>
+  <script src="lib/highcharts-ng/dist/highcharts-ng.min.js"></script>
 
   <script src="js/app.js"></script>
   <script src="js/config.js"></script>
   <script src="js/services.js"></script>
   <script src="js/controllers.js"></script>
   <script src="js/directives.js"></script>
-
 </head>
+
 <body ng-controller="index">
-  
   <ion-side-menus>
     <!-- Center content -->
     <ion-side-menu-content>
