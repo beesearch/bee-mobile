@@ -1,5 +1,5 @@
 
-angular.module(_CONTROLLERS_).controller('search', function($scope, $ES_Search, oauth2Token) {
+angular.module(_CONTROLLERS_).controller('search', function($scope, beeSearch, oauth2Token) {
 	console.log('### search controller in');
 
 	// Check login when app is launched
@@ -11,7 +11,7 @@ angular.module(_CONTROLLERS_).controller('search', function($scope, $ES_Search, 
 		// Prevent from searching an empty string
 		if ($scope.search) {
 			console.log("Searching:" + $scope.search);
-			$scope.items = $ES_Search.query({'search' : $scope.search});
+			$scope.items = beeSearch.query({'search' : $scope.search});
 		} else {
 			// Search string is empty
 			$scope.items = null;
