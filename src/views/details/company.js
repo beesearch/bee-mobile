@@ -1,9 +1,8 @@
 angular.module(_CONTROLLERS_).controller('company', function($scope, $stateParams, beeModel) {
 	console.log('### company controller in (companyId:' + $stateParams.companyId + ')');
 
-	$scope.company = beeModel.get({model: 'company', id: $stateParams.companyId});
+	$scope.company = beeModel.get({type: 'customer', index: 'qn', id: $stateParams.companyId});
 	console.log($scope.company);
-
 
 	/*$scope.topFivePieChart = {
 		options: {
