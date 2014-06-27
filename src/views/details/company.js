@@ -1,61 +1,30 @@
-angular.module(_CONTROLLERS_).controller('company', function($scope, $stateParams, beeModel) {
-	console.log('### company controller in (companyId:' + $stateParams.companyId + ')');
+angular.module(_CONTROLLERS_).controller('company', function($scope, $stateParams, beeModel, currentItem) {
+	console.log('### company controller in (companyId:' + $stateParams.companyId + ', index: ' + $stateParams.index + ', type: ' + $stateParams.type + ')');
 
-	$scope.company = beeModel.get({type: 'customer', index: 'qn', id: $stateParams.companyId});
-	console.log($scope.company);
+	$scope.item = currentItem.get();
 
-	/*$scope.topFivePieChart = {
-		options: {
-			chart: {
-				type: 'pie'
-			}
-		},
-		series: [{
-            data: [10]
-        }],
-		title: {
-			text: 'Top 5 produits'
-		},
-		loading: false
+	$scope.top5ProductsChart = {
+		series: [],
+		options: { chart: { type: 'bar'	} },
+		loading: true
 	}
 
-	$scope.topFiveBarChart = {
-		options: {
-			chart: {
-				type: 'bar'
-			}
-		},
-		series: [{
-            data: [10, 15, 12, 8, 7]
-        }],
-		title: {
-			text: 'Top 5 produits'
-		},
-		loading: false
-	}
+	beeModel.get({type: $stateParams.type, index: $stateParams.index, id: $stateParams.companyId}, function(data) {
+		// Set customer datas in scope
+		$scope.item = data.companyDatas;
 
-	$scope.search = 'Alexandre';
+		// Set chart values and remove loading
+		$scope.top5ProductsChart.title = data.companyTop5Chart.title;
+		$scope.top5ProductsChart.options.chart.type = data.companyTop5Chart.type;
+		for (var i = 0; i < data.companyTop5Chart.series.length; i++) {
+			var chart = data.companyTop5Chart.series[i];
+			$scope.top5ProductsChart.series.push(chart);
+		};
+		$scope.top5ProductsChart.loading = false;
+	}, function(error) {
+		// An error occured
+		console.log('error', error)
+	});
 
-	if ($scope.search) {
-		console.log("Searching:" + $scope.search);
-		
-		var result = $ES_TopFiveProduct.query({'search' : $scope.search});
-		result.$promise.then(function() {
-			console.log(JSON.stringify(result));
-			// Empty existing series array
-			while($scope.topFivePieChart.series.length > 0) {
-			    $scope.topFivePieChart.series.pop();
-			}
-			// Push new series values
-			$scope.topFivePieChart.series.push(result.series);
-			// Display chart !
-			$scope.topFivePieChart.loading = false;
-		});
-	} else {
-		// Search string is empty
-		console.log("/!\\ Empty search");
-		$scope.ideas = null;
-	}*/
-	
 	console.log('### company controller out');
 });

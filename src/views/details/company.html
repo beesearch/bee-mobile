@@ -1,6 +1,12 @@
 <ion-view title="Détails">
-<ion-content>
-	<highchart config="topFivePieChart"></highchart>
-	<highchart config="topFiveBarChart"></highchart>
-</div>
+	<ion-content>
+		<div class="list card">
+			<div class="item item-avatar">
+				<img ng-src="images/icon-{{item._index}}.png">
+				<h2>{{item._source.company.name}}</h2>
+				<p>Siren : {{item._source.company.siren}}</p>
+			</div>
+		<div>
+		<highchart config="top5ProductsChart"></highchart>
+	</ion-content>
 </ion-view>

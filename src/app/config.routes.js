@@ -14,7 +14,7 @@
       controller: 'search'
     })
     .state('company', {
-      url: '/company/:companyId',
+      url: '/company/:index/:type/:companyId',
       templateUrl: 'views/details/company.html',
       controller: 'company'
     })

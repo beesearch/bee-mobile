@@ -19,7 +19,7 @@
 							<p>{{item._source.commercialAddress.state}}</p>
 						  </div>
 						  <div class="col">
-							<img src="images/icon-{{item._index}}.png" width="80">
+							<img ng-src="images/icon-{{item._index}}.png" width="80">
 						  </div>
 						</div>	
 					</div>
@@ -27,21 +27,21 @@
 						<p>Siren : {{item._source.company.siren}}</p>
 					</div>
 					<div class="item item-avatar">
-						<img src="{{item._source.contact.sales.avatar}}">
+						<img ng-src="{{item._source.contact.sales.avatar}}">
 						<h2>Commercial</h2>
 						<p>{{item._source.contact.sales.firstName}} {{item._source.contact.sales.lastName}}</p>
 					</div>
 					<div class="item item-avatar">
-						<img src="{{item._source.contact.admin.avatar}}">
+						<img ng-src="{{item._source.contact.admin.avatar}}">
 						<h2>Administrateur</h2>
 						<p>{{item._source.contact.admin.firstName}} {{item._source.contact.admin.lastName}}</p>
 					</div>
 					<div class="item item-avatar">
-						<img src="{{item._source.contact.technical.avatar}}">
+						<img ng-src="{{item._source.contact.technical.avatar}}">
 						<h2>Technicien</h2>
 						<p>{{item._source.contact.technical.firstName}} {{item._source.contact.technical.lastName}}</p>
 					</div>
-					<a class="item item-icon-left assertive" href="#/company/{{item._source.company.id}}">
+					<a class="item item-icon-left assertive" href="" ng-click="item_onclick(item)">
 						<i class="icon ion-search"></i>
 						Afficher
 					</a>

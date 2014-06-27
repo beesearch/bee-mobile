@@ -1,5 +1,5 @@
 
-angular.module(_CONTROLLERS_).controller('search', function($scope, beeSearch, oauth2Token) {
+angular.module(_CONTROLLERS_).controller('search', function($scope, $state, oauth2Token, beeSearch, currentItem) {
 	console.log('### search controller in');
 
 	// Check login when app is launched
@@ -16,6 +16,13 @@ angular.module(_CONTROLLERS_).controller('search', function($scope, beeSearch, o
 			// Search string is empty
 			$scope.items = null;
 		}
+	}
+
+	$scope.item_onclick = function(item) {
+		// Store the current line to use it in the next screen
+		currentItem.set(item);
+		// Go to next screen
+		$state.go('company', { 'companyId': item._source.company.id, 'index': item._index, 'type': item._type });
 	}
 
 	console.log('### search controller out');
