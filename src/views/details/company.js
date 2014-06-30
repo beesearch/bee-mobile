@@ -7,7 +7,19 @@ angular.module(_CONTROLLERS_).controller('company', function($scope, $stateParam
 		series: [],
 		options: { 
 			chart: { 
-				type: 'bar'	
+				title: 'Top 5 produits',
+				type: 'pie'	
+			}
+		},
+		loading: true
+	}
+
+	$scope.top5SalesChart = {
+		series: [],
+		options: { 
+			chart: { 
+				title: 'Top sales',
+				type: 'pie'	
 			}
 		},
 		loading: true
@@ -33,12 +45,21 @@ angular.module(_CONTROLLERS_).controller('company', function($scope, $stateParam
 
 		// Set chart values and remove loading
 		$scope.top5ProductsChart.title = data.companyTop5Chart.title;
-		$scope.top5ProductsChart.options.chart.type = data.companyTop5Chart.type;
+		//$scope.top5ProductsChart.options.chart.type = data.companyTop5Chart.type;
 		for (var i = 0; i < data.companyTop5Chart.series.length; i++) {
 			var chart = data.companyTop5Chart.series[i];
 			$scope.top5ProductsChart.series.push(chart);
 		};
 		$scope.top5ProductsChart.loading = false;
+
+		// Set chart values and remove loading
+		$scope.top5SalesChart.title = data.companyTop5Sales.title;
+		//$scope.top5SalesChart.options.chart.type = data.companyTop5Sales.type;
+		for (var i = 0; i < data.companyTop5Sales.series.length; i++) {
+			var chart = data.companyTop5Sales.series[i];
+			$scope.top5SalesChart.series.push(chart);
+		};
+		$scope.top5SalesChart.loading = false;
 	}, function(error) {
 		// An error occured
 		console.log('error', error)
