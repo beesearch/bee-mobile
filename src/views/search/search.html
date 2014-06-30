@@ -9,54 +9,23 @@
 
 	<ion-content>
 		<ion-list animation="slide-in-right">
-			<ion-item ng-repeat="item in items | orderBy:item._score" ng-switch="item._type">
+			<div ng-repeat="item in items | orderBy:item._score" ng-switch="item._type">
 				<div ng-switch-when="customer">
-					<div class="item item-divider">
-						<div class="row">
-						  <div class="col-75">
+					<a class="item item-avatar" href="" ng-click="item_onclick(item)">
+							<img ng-src="images/icon-{{item._index}}.png">
 							<h2>{{item._source.company.name}}</h2>
-							<h3>{{item._source.commercialAddress.city}} - {{item._source.commercialAddress.zip}}</h3>
-							<p>{{item._source.commercialAddress.state}}</p>
-						  </div>
-						  <div class="col">
-							<img ng-src="images/icon-{{item._index}}.png" width="80">
-						  </div>
-						</div>	
-					</div>
-					<div class="item">
-						<p>Siren : {{item._source.company.siren}}</p>
-					</div>
-					<div class="item item-avatar">
-						<img ng-src="{{item._source.contact.sales.avatar}}">
-						<h2>Commercial</h2>
-						<p>{{item._source.contact.sales.firstName}} {{item._source.contact.sales.lastName}}</p>
-					</div>
-					<div class="item item-avatar">
-						<img ng-src="{{item._source.contact.admin.avatar}}">
-						<h2>Administrateur</h2>
-						<p>{{item._source.contact.admin.firstName}} {{item._source.contact.admin.lastName}}</p>
-					</div>
-					<div class="item item-avatar">
-						<img ng-src="{{item._source.contact.technical.avatar}}">
-						<h2>Technicien</h2>
-						<p>{{item._source.contact.technical.firstName}} {{item._source.contact.technical.lastName}}</p>
-					</div>
-					<a class="item item-icon-left assertive" href="" ng-click="item_onclick(item)">
-						<i class="icon ion-search"></i>
-						Afficher
+							<p>Siren : {{item._source.company.siren}}</p>
 					</a>
 				</div>
+
 				<div ng-switch-when="product">
-					<div class="item">
+					<div class="item item-avatar">
+						<img ng-src="images/icon-{{item._index}}.png">
 						<h2>{{item._source.name}}</h2>
 						<p>Dimension : (l) {{item._source.width}} x (h) {{item._source.height}}</p>
 						<p>Poid : {{item._source.weight}}kg</p>
 						<p>prix : {{item._source.price}} €</p>
 					</div>
-					<a class="item item-icon-left assertive" href="#">
-						<i class="icon ion-search"></i>
-						Afficher
-					</a>
 				</div>
 			</ion-item>
 		</ion-list>

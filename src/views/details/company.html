@@ -1,12 +1,61 @@
 <ion-view title="Détails">
 	<ion-content>
-		<div class="list card">
-			<div class="item item-avatar">
-				<img ng-src="images/icon-{{item._index}}.png">
-				<h2>{{item._source.company.name}}</h2>
-				<p>Siren : {{item._source.company.siren}}</p>
+
+		<ion-item>	
+			<h2>{{item._source.company.name}}</h2>
+			<p>Siren : {{item._source.company.siren}}</p>
+		</ion-item>
+		
+		<div ng-repeat="item in item._source.contacts" ng-switch="item.type">
+
+			<div ng-switch-when="admin">
+				<div class="item item-avatar">
+					<img ng-src="{{item.avatar}}">
+					<h3>Admin</h3>
+					<p>{{item.firstName}} {{item.lastName}} <b>({{item.phone}})</b></p>
+					<p>{{item.email}}</p>
+				</div>				
 			</div>
-		<div>
+
+			<div ng-switch-when="sales">
+				<div class="item item-avatar">
+					<img ng-src="{{item.avatar}}">
+					<h3>Sales</h3>
+					<p>{{item.firstName}} {{item.lastName}} <b>({{item.phone}})</b></p>
+					<p>{{item.email}}</p>
+				</div>
+			</div>
+			<div ng-switch-when="tech">
+				<div class="item item-avatar">
+					<img ng-src="{{item.avatar}}">
+					<h3>Technical</h3>
+					<p>{{item.firstName}} {{item.lastName}} <b>({{item.phone}})</b></p>
+					<p>{{item.email}}</p>
+				</div>		
+			</div>
+		</div>
+
+
+		<div ng-repeat="item in item._source.addresses" ng-switch="item.type">
+			<div ng-switch-when="sales">
+				<div class="item item-icon-left">
+					<i class="icon ion-card"></i>
+					<h3>Sales address</h3>
+					<p>{{item.street}} - {{item.zip}}</p>
+					<p><b>{{item.city}}</b></p>
+				</div>
+			</div>
+			<div ng-switch-when="shipping">
+				<div class="item item-icon-left">
+					<i class="icon ion-plane"></i>
+					<h3>Shipping address</h3>
+					<p>{{item.street}} - {{item.zip}}</p>
+					<p><b>{{item.city}}</b></p>
+				</div>
+			</div>
+		</div>
+
 		<highchart config="top5ProductsChart"></highchart>
+
 	</ion-content>
 </ion-view>
