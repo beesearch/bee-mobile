@@ -11,26 +11,26 @@
 			<div ng-switch-when="admin">
 				<div class="item item-avatar">
 					<img ng-src="{{item.avatar}}">
-					<h3>Admin</h3>
-					<p>{{item.firstName}} {{item.lastName}} <b>({{item.phone}})</b></p>
-					<p>{{item.email}}</p>
+					<h3>Administratif</h3>
+					<p>{{item.firstName}} {{item.lastName}} <b>{{item.phone}}</b> </br>
+					{{item.email}}</p>
 				</div>				
 			</div>
 
 			<div ng-switch-when="sales">
 				<div class="item item-avatar">
 					<img ng-src="{{item.avatar}}">
-					<h3>Sales</h3>
-					<p>{{item.firstName}} {{item.lastName}} <b>({{item.phone}})</b></p>
-					<p>{{item.email}}</p>
+					<h3>Ventes</h3>
+					<p>{{item.firstName}} {{item.lastName}} <b>{{item.phone}}</b> </br>
+					{{item.email}}</p>
 				</div>
 			</div>
 			<div ng-switch-when="tech">
 				<div class="item item-avatar">
 					<img ng-src="{{item.avatar}}">
-					<h3>Technical</h3>
-					<p>{{item.firstName}} {{item.lastName}} <b>({{item.phone}})</b></p>
-					<p>{{item.email}}</p>
+					<h3>Technique</h3>
+					<p>{{item.firstName}} {{item.lastName}} <b>{{item.phone}}</b> </br>
+					{{item.email}}</p>
 				</div>		
 			</div>
 		</div>
@@ -40,20 +40,33 @@
 			<div ng-switch-when="sales">
 				<div class="item item-icon-left">
 					<i class="icon ion-card"></i>
-					<h3>Sales address</h3>
-					<p>{{item.street}} - {{item.zip}}</p>
-					<p><b>{{item.city}}</b></p>
+					<h3>Adresse de facturation</h3>
+					<p>{{item.street}} </br>
+					{{item.zip}} <b>{{item.city}}</b></p>
 				</div>
 			</div>
 			<div ng-switch-when="shipping">
 				<div class="item item-icon-left">
 					<i class="icon ion-plane"></i>
-					<h3>Shipping address</h3>
-					<p>{{item.street}} - {{item.zip}}</p>
-					<p><b>{{item.city}}</b></p>
+					<h3>Addresse de livraison</h3>
+					<p>{{item.street}} </br>
+					{{item.zip}} <b>{{item.city}}</b></p>
 				</div>
 			</div>
 		</div>
+
+
+		<a class="item item-icon-left">
+			<i class="icon ion-bag"></i>
+			<h3>Dernières commandes</h3>
+			<span class="badge badge-assertive">10</span>
+		</a>
+
+		<a class="item item-icon-left">
+			<i class="icon ion-star"></i>
+			<h3>Devis en cours</h3>
+			<span class="badge badge-assertive">3</span>
+		</a>
 
 		<highchart config="top5ProductsChart"></highchart>
 		<highchart config="top5SalesChart"></highchart>
