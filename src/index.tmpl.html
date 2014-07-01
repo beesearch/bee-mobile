@@ -59,67 +59,34 @@
             <i class="icon ion-search"></i>
             Recherche
           </a>
-          <a nav-clear class="item item-icon-left" ng-click="goTo('company')">
-            <i class="icon ion-search"></i>
-            Company
-          </a>
+
           <div class="item item-divider">
             Filiales
           </div>
-          <div class="item item-icon-left item-toggle">
+          <ion-toggle ng-change="switchIndex('snrf')" ng-model="snrf" class="item item-icon-left">
             <i class="icon ion-home"></i>
-              S.N.R.F.
-            <label class="toggle">
-              <input type="checkbox">
-              <div class="track">
-                <div class="handle"></div>
-              </div>
-            </label>
-          </div>
-          <div class="item item-icon-left item-toggle">
+            S.N.R.F.
+          </ion-toggle>
+          <ion-toggle ng-change="switchIndex('fta')" ng-model="fta" class="item item-icon-left">
             <i class="icon ion-home"></i>
-              F.T.A.
-            <label class="toggle">
-              <input type="checkbox" checked>
-              <div class="track">
-                <div class="handle"></div>
-              </div>
-            </label>
-          </div>
-          <div class="item item-icon-left item-toggle">
+            F.T.A.
+          </ion-toggle>
+          <ion-toggle ng-change="switchIndex('qn')" ng-model="qn" class="item item-icon-left">
             <i class="icon ion-home"></i>
-              Q.N.
-            <label class="toggle">
-              <input type="checkbox" checked>
-              <div class="track">
-                <div class="handle"></div>
-              </div>
-            </label>
-          </div>
-        
+            Q.N.
+          </ion-toggle>
+
           <div class="item item-divider">
             Données
           </div>
-          <div class="item item-icon-left item-toggle">
+          <ion-toggle ng-change="switchType('customers')" ng-model="customers"  class="item item-icon-left">
             <i class="icon ion-ios7-people"></i>
-              Clients
-            <label class="toggle">
-              <input type="checkbox">
-              <div class="track">
-                <div class="handle"></div>
-              </div>
-            </label>
-          </div>
-          <div class="item item-icon-left item-toggle">
+            Clients
+          </ion-toggle>
+          <ion-toggle ng-change="switchType('products')" ng-model="products"  class="item item-icon-left">
             <i class="icon ion-ios7-pricetag"></i>
-              Produits
-            <label class="toggle">
-              <input type="checkbox" checked>
-              <div class="track">
-                <div class="handle"></div>
-              </div>
-            </label>
-          </div>
+            Produits
+          </ion-toggle>
         </div>
       </ion-content>
     </ion-side-menu>

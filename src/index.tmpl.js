@@ -1,5 +1,15 @@
-angular.module(_CONTROLLERS_).controller('index', function($scope, $ionicModal, $ionicSideMenuDelegate, $location, oauth2Token, oauth2Caller) {
+angular.module(_CONTROLLERS_).controller('index', function($scope, $ionicModal, $ionicSideMenuDelegate, $location, oauth2Token, oauth2Caller, searchSettings) {
 	console.log('### index controller in');
+
+	// Indexes search settings
+	$scope.switchIndex = function(index) {
+		searchSettings.switchIndex(index);
+	}
+
+	// Types search settings
+	$scope.switchType = function(type) {
+		searchSettings.switchType(type);
+	}
 
 	// Goto action : close side menu then go to page
 	$scope.goTo = function(page) {
