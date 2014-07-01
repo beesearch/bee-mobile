@@ -14,7 +14,10 @@
 					<a class="item item-avatar" href="" ng-click="item_onclick(item)">
 							<img ng-src="images/icon-{{item._index}}.png">
 							<h2>{{item._source.company.name}}</h2>
-							<p>Siren : {{item._source.company.siren}}</p>
+							<p>Siren : {{item._source.company.siren}}</br>
+								Siege : {{item._source.addresses[0].city}}
+							</p>
+							<ion-option-button class="button-positive" ng-click="share(item)">associer</ion-option-button>
 					</a>
 				</div>
 
