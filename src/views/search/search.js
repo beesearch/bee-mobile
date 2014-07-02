@@ -22,7 +22,7 @@ angular.module(_CONTROLLERS_).controller('search', function($scope, $state, oaut
 		// Store the current line to use it in the next screen
 		currentItem.set(item);
 		// Go to next screen
-		$state.go('company', { 'companyId': item._source.company.companyId, 'index': item._index, 'type': item._type });
+		$state.go('company', { 'companyId': item._id, 'index': item._index, 'type': item._type });
 	}
 
 	console.log('### search controller out');
