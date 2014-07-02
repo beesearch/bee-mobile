@@ -8,28 +8,13 @@
 	</ion-header-bar>
 
 	<ion-content>
-		<ion-list animation="slide-in-right">
-			<div ng-repeat="item in items | orderBy:item._score" ng-switch="item._type">
-				<div ng-switch-when="customer">
-					<a class="item item-avatar" href="" ng-click="item_onclick(item)">
-							<img ng-src="images/icon-{{item._index}}.png">
-							<h2>{{item._source.company.name}}</h2>
-							<p>Siren : {{item._source.company.siren}}</br>
-								Siege : {{item._source.addresses[0].city}}
-							</p>
-							<ion-option-button class="button-positive" ng-click="share(item)">associer</ion-option-button>
-					</a>
-				</div>
-
-				<div ng-switch-when="product">
-					<div class="item item-avatar">
+		<ion-list>
+			<ion-item class="item item-avatar" ng-repeat="item in items | orderBy:item._score" ng-click="item_onclick(item)">
 						<img ng-src="images/icon-{{item._index}}.png">
-						<h2>{{item._source.name}}</h2>
-						<p>Dimension : (l) {{item._source.width}} x (h) {{item._source.height}}</p>
-						<p>Poid : {{item._source.weight}}kg</p>
-						<p>prix : {{item._source.price}} €</p>
-					</div>
-				</div>
+						<h2>{{item.fields["company.name"][0]}}</h2>
+						<p>Siren : {{item.fields["company.siren"][0]}}
+				        </p>
+						<ion-option-button class="button-positive" ng-click="share(item)">Associer</ion-option-button>
 			</ion-item>
 		</ion-list>
 	</ion-content>
