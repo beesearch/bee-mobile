@@ -33,6 +33,12 @@ angular.module(_SERVICES_).factory('searchSettings', function() {
 				types[types.length] = type;
 			}
 			console.log('### types: ' + types);
+		},
+		getIndexes: function() {
+			return indexes.toString();
+		},
+		getTypes: function() {
+			return types.toString();
 		}
 	};
 });

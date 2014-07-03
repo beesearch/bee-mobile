@@ -9,6 +9,7 @@
 
 	<ion-content>
 		<ion-list>
+			<li ng-show="!items.length">Aucun résultat</li>
 			<ion-item class="item item-avatar" ng-repeat="item in items | orderBy:item._score" ng-click="item_onclick(item)">
 				<img ng-src="images/icon-{{item._index}}.png">
 				<h2>{{item.fields["company.name"][0]}}</h2>
