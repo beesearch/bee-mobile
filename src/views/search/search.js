@@ -11,7 +11,14 @@ angular.module(_CONTROLLERS_).controller('search', function($scope, $state, oaut
 		// Prevent from searching an empty string
 		if ($scope.search) {
 			console.log("Searching:" + $scope.search);
-			$scope.items = beeSearch.query({'search': $scope.search, 'indexes': searchSettings.getIndexes(), 'types':searchSettings.getTypes()});
+			beeSearch.query({'search': $scope.search, 'indexes': searchSettings.getIndexes(), 'types':searchSettings.getTypes()}, function(data) {
+				$scope.items = data;
+				if ($scope.items.length === 0) {
+					$scope.noresult = true;
+				} else {
+					$scope.noresult = false;
+				}
+			});
 		} else {
 			// Search string is empty
 			$scope.items = null;
