@@ -21,7 +21,6 @@ module.exports = function(grunt) {
 					'<%= appDir %>/js/services.js' :	['<%= srcDir %>/app/services/*.js', '<%= srcDir %>/js/services/**/*.js'],
 					'<%= appDir %>/js/controllers.js' :	['<%= srcDir %>/index.tmpl.js', '<%= srcDir %>/views/**/*.js'],
 					'<%= appDir %>/js/directives.js' :	['<%= srcDir %>/app/directives/*.js', '<%= srcDir %>/js/directives/**/*.js']
-
 				}
 			}
 		},
@@ -115,6 +114,31 @@ module.exports = function(grunt) {
 					base: '<%= appDir %>'
 				}
 			}
+		},
+
+		// Replace a string by another in a file
+		replace: {
+			local: {
+				src: ['<%= appDir %>/js/config.js'],
+				overwrite: true,
+				replacements: [{
+					from: /\.constant\('BACKEND_HOST','[a-z0-9.]+'\)/g,
+					to: "  .constant('BACKEND_HOST','localhost')"
+				}]
+			},
+			vps: {
+				src: ['<%= appDir %>/js/config.js'],
+				overwrite: true,
+				replacements: [{
+					from: /\.constant\('BACKEND_HOST','[a-z0-9.]+'\)/g,
+					to: ".constant('BACKEND_HOST','vps67962.ovh.net')"
+				}]
+			}
+		},
+
+		dev: {
+			local: {},
+			vps: {}
 		}
 	});
 
@@ -122,6 +146,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-text-replace');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-connect');
 
@@ -137,7 +162,6 @@ module.exports = function(grunt) {
 		// generate main index.html file
 		grunt.file.write(opts.dest, layout);
 		grunt.log.write('Generating ' + opts.dest + '...').ok();
-
 	});
 
 	// task for building main index page based on environment
@@ -160,6 +184,10 @@ module.exports = function(grunt) {
 		grunt.task.run('layout');
 	});
 
-	grunt.registerTask('dev', ['build', 'connect', 'watch']);
-
+	grunt.registerMultiTask('dev', 'Dev target', function() {
+		grunt.task.run('build');
+		grunt.task.run('replace:' + this.target);
+		grunt.task.run('connect');
+		grunt.task.run('watch');
+	});
 };
