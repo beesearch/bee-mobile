@@ -56,46 +56,41 @@
 
     <!-- Left menu -->
     <ion-side-menu side="left">
-      <!-- Content List -->
+      <!-- Pages menu -->
+      <ion-header-bar class="bar bar-header bar-dark">
+        <h1 class="title">Menu</h1>
+      </ion-header-bar>
       <ion-content>
-        <div class="list">
-          <!-- Pages menu -->
-          <div class="item item-divider">
-            Menu
-          </div>
-          <a nav-clear class="item item-icon-left" ng-click="goTo('search')">
-            <i class="icon ion-search"></i>
-            Recherche
-          </a>
-
-          <div class="item item-divider">
-            Filiales
-          </div>
-          <ion-toggle ng-change="switchIndex('snrf')" ng-model="snrf" class="item item-icon-left">
-            <i class="icon ion-home"></i>
-            S.N.R.F.
-          </ion-toggle>
-          <ion-toggle ng-change="switchIndex('fta')" ng-model="fta" class="item item-icon-left">
-            <i class="icon ion-home"></i>
-            F.T.A.
-          </ion-toggle>
-          <ion-toggle ng-change="switchIndex('qn')" ng-model="qn" class="item item-icon-left">
-            <i class="icon ion-home"></i>
-            Q.N.
-          </ion-toggle>
-
-          <div class="item item-divider">
-            Données
-          </div>
-          <ion-toggle ng-change="switchType('customers')" ng-model="customers"  class="item item-icon-left">
-            <i class="icon ion-ios7-people"></i>
-            Clients
-          </ion-toggle>
-          <ion-toggle ng-change="switchType('products')" ng-model="products"  class="item item-icon-left">
-            <i class="icon ion-ios7-pricetag"></i>
-            Produits
-          </ion-toggle>
+        <a nav-clear class="item item-icon-left" ng-click="goTo('search')">
+          <i class="icon ion-search"></i>
+          Recherche
+        </a>
+        <div class="item item-divider">
+          Filiales
         </div>
+        <ion-toggle ng-change="switchIndex('snrf')" ng-model="snrf" class="item item-icon-left">
+          <i class="icon ion-home"></i>
+          S.N.R.F.
+        </ion-toggle>
+        <ion-toggle ng-change="switchIndex('fta')" ng-model="fta" class="item item-icon-left">
+          <i class="icon ion-home"></i>
+          F.T.A.
+        </ion-toggle>
+        <ion-toggle ng-change="switchIndex('qn')" ng-model="qn" class="item item-icon-left">
+          <i class="icon ion-home"></i>
+          Q.N.
+        </ion-toggle>
+        <div class="item item-divider">
+          Données
+        </div>
+        <ion-toggle ng-change="switchType('customers')" ng-model="customers"  class="item item-icon-left">
+          <i class="icon ion-ios7-people"></i>
+          Clients
+        </ion-toggle>
+        <ion-toggle ng-change="switchType('products')" ng-model="products"  class="item item-icon-left">
+          <i class="icon ion-ios7-pricetag"></i>
+          Produits
+        </ion-toggle>
       </ion-content>
     </ion-side-menu>
   </ion-side-menus>
