@@ -6,7 +6,7 @@
  */
 // Interceptor catching responses
 angular.module(_APP_).config(function($httpProvider) {
-  var responseInterceptor = function($q, oauth2Token) {
+  var responseInterceptor = function($q, $rootScope) {
     return {
 
       response: function (response) {
@@ -14,14 +14,12 @@ angular.module(_APP_).config(function($httpProvider) {
         return response;
       },
 
-      responseError: function (response) {
+      responseError: function (rejection) {
+        // Broadcast the rejection
+        console.log('### responseInterceptor : broadcast event:auth-errorReceived (error: ' + JSON.stringify(rejection) + ')');
+        $rootScope.$broadcast('event:auth-errorReceived', rejection);
 
-          //console.log("response: " + JSON.stringify(response));
-
-          // Broadcast the error
-          oauth2Token.broadcastError(response.data.error);
-
-          return $q.reject(response);
+        return $q.reject(rejection);
       }
     }
   };

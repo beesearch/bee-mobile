@@ -44,11 +44,6 @@ angular.module(_SERVICES_).factory('oauth2Token', function($rootScope) {
 		$rootScope.$broadcast('event:auth-loginRequired');
 	}
 
-	oauth2Token.broadcastError = function(error) {
-		console.log('### oauth2Token.broadcastError : broadcast event:auth-errorReceived (error: ' + JSON.stringify(error) + ')');
-		$rootScope.$broadcast('event:auth-errorReceived', error);
-	}
-
 	// wraps given actions of a resource to send auth token
 	// with every request
 	oauth2Token.wrapActions = function(resource, actions) {
@@ -98,7 +93,7 @@ angular.module(_SERVICES_).factory('oauth2Caller', function($http, $rootScope, o
 			oauth2Token.setRefreshToken(data.refresh_token);
 			$rootScope.$broadcast('event:auth-loginConfirmed');
 		}).error(function(data, status, headers, config) {
-			console.log('### oauth2Caller.retrieveToken : Authentication failed (' + data.error.error_description + ')');
+			console.log('### oauth2Caller.retrieveToken : Authentication failed');
 		});
 	}
 
@@ -116,7 +111,8 @@ angular.module(_SERVICES_).factory('oauth2Caller', function($http, $rootScope, o
 			oauth2Token.setRefreshToken(data.refresh_token);
 			$rootScope.$broadcast('event:auth-loginConfirmed');
 		}).error(function(data, status, headers, config) {
-			console.log('### oauth2Caller.tryRefreshToken : Authentication failed (' + data.error.error_description + ')');
+			// Retry token is outdated, user is disconnected
+			console.log('### oauth2Caller.tryRefreshToken : Authentication failed');
 			oauth2Token.logout();
 		});
 	}
