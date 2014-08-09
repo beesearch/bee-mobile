@@ -140,6 +140,11 @@ module.exports = function(grunt) {
 		dev: {
 			local: {},
 			vps: {}
+		},
+
+		build: {
+			local: {},
+			vps: {}
 		}
 	});
 
@@ -166,11 +171,7 @@ module.exports = function(grunt) {
 	});
 
 	// task for building main index page based on environment
-	grunt.registerTask('build', 'Build the app based on environment.', function() {
-
-		var opts = this.options()
-			, target = this.target
-			, args = this.args;
+	grunt.registerMultiTask('build', 'Build the app based on environment.', function() {
 
 		// clean up directories
 		grunt.task.run('clean:app');
@@ -183,6 +184,8 @@ module.exports = function(grunt) {
 
 		// build main index.html file
 		grunt.task.run('layout');
+
+		grunt.task.run('replace:' + this.target);
 	});
 
 	grunt.registerMultiTask('dev', 'Dev target', function() {
