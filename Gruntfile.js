@@ -11,6 +11,7 @@ module.exports = function(grunt) {
 		appDir: 'www',
 		bowerDir: 'vendor',
 		srcDir: 'src',
+		target: this.target,
 
 		// concatenate files
 		concat: {
@@ -91,7 +92,7 @@ module.exports = function(grunt) {
 			},
 			scripts: {
 				files: ['<%= srcDir %>/*.js', '<%= srcDir %>/app/**/*.js', '<%= srcDir %>/views/**/*.js'],
-				tasks: ['clean:js', 'concat:app']
+				tasks: ['clean:js', 'concat:app', 'replace:<%= initialTarget %>']
 			},
 			images: {
 				files: ['<%= srcDir %>/images/**'],
@@ -185,6 +186,7 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerMultiTask('dev', 'Dev target', function() {
+		grunt.config.set('initialTarget', this.target);
 		grunt.task.run('build');
 		grunt.task.run('replace:' + this.target);
 		grunt.task.run('connect');
