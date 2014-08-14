@@ -1,5 +1,4 @@
 <ion-view title="Recherche">
-
 	<ion-header-bar class="bar-subheader item-input-inset">
 		<label class="item-input-wrapper">
 			<i class="icon ion-search placeholder-icon"></i>
@@ -8,18 +7,20 @@
 	</ion-header-bar>
 
 	<ion-content>
-		<ion-list>
+		<div class="list">
 			<p ng-show="noresult" class="list-inset item item-icon-left">
 				<i class="icon ion-sad"></i>
 				Aucun résultat
 			</p>
-			<ion-item class="item item-avatar" ng-repeat="item in items | orderBy:item._score" ng-click="item_onclick(item)">
+			<div class="item item-avatar my-item"
+				collection-repeat="item in items"
+				collection-item-width="'100%'"
+				collection-item-height="74"
+				ng-click="item_onclick(item)">
 				<img ng-src="images/icon-{{item._index}}.png">
 				<h2>{{item.fields["company.name"][0]}}</h2>
 				<p>Siren : {{item.fields["company.siren"][0]}}</p>
-				<ion-option-button class="button-positive" ng-click="share(item)">Associer</ion-option-button>
-			</ion-item>
-		</ion-list>
+			</div>
+		</div>
 	</ion-content>
-
 </ion-view>
