@@ -11,6 +11,7 @@ module.exports = function(grunt) {
 		appDir: 'www',
 		bowerDir: 'vendor',
 		srcDir: 'src',
+		target: this.target,
 
 		// concatenate files
 		concat: {
@@ -91,7 +92,7 @@ module.exports = function(grunt) {
 			},
 			scripts: {
 				files: ['<%= srcDir %>/*.js', '<%= srcDir %>/app/**/*.js', '<%= srcDir %>/views/**/*.js'],
-				tasks: ['clean:js', 'concat:app']
+				tasks: ['clean:js', 'concat:app', 'replace:<%= initialTarget %>']
 			},
 			images: {
 				files: ['<%= srcDir %>/images/**'],
@@ -139,6 +140,11 @@ module.exports = function(grunt) {
 		dev: {
 			local: {},
 			vps: {}
+		},
+
+		build: {
+			local: {},
+			vps: {}
 		}
 	});
 
@@ -165,11 +171,7 @@ module.exports = function(grunt) {
 	});
 
 	// task for building main index page based on environment
-	grunt.registerTask('build', 'Build the app based on environment.', function() {
-
-		var opts = this.options()
-			, target = this.target
-			, args = this.args;
+	grunt.registerMultiTask('build', 'Build the app based on environment.', function() {
 
 		// clean up directories
 		grunt.task.run('clean:app');
@@ -182,9 +184,12 @@ module.exports = function(grunt) {
 
 		// build main index.html file
 		grunt.task.run('layout');
+
+		grunt.task.run('replace:' + this.target);
 	});
 
 	grunt.registerMultiTask('dev', 'Dev target', function() {
+		grunt.config.set('initialTarget', this.target);
 		grunt.task.run('build');
 		grunt.task.run('replace:' + this.target);
 		grunt.task.run('connect');
