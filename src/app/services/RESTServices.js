@@ -6,7 +6,8 @@ angular.module(_SERVICES_).factory('beeSearch', function($resource, oauth2Token,
 });
 
 angular.module(_SERVICES_).factory('beeModel', function($resource, oauth2Token, BACKEND_PROTOCOL, BACKEND_HOST, BACKEND_PORT) {
-	resource = $resource(BACKEND_PROTOCOL + '://' + BACKEND_HOST + ':' + BACKEND_PORT + '/type/:type/index/:index/id/:id');
+	resource = $resource(BACKEND_PROTOCOL + '://' + BACKEND_HOST + ':' + BACKEND_PORT + '/db/abo/collection/customer/id/2');
+    //resource = $resource(BACKEND_PROTOCOL + '://' + BACKEND_HOST + ':' + BACKEND_PORT + '/db/:type/collection/:index/id/:id');
 
 	return oauth2Token.wrapActions(resource, ["get"]);
 });

@@ -28,7 +28,7 @@ angular.module(_CONTROLLERS_).controller('company', function($scope, $stateParam
 
 	beeModel.get({type: $stateParams.type, index: $stateParams.index, id: $stateParams.companyId}, function(data) {
 		// Set customer datas in scope
-		$scope.item = data.companyDatas;
+		$scope.item = data.customerDatas[0];
 
 		// Set chart values and remove loading
 		$scope.top5ProductsChart.title = data.companyTop5Chart.title;

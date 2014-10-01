@@ -2,11 +2,11 @@
 	<ion-content>
 
 		<ion-item>	
-			<h2>{{item._source.company.name}}</h2>
-			<p>Siren : {{item._source.company.siren}}</p>
+			<h2>{{item.name}}</h2>
+			<p>Siren : {{item.siren}}</p>
 		</ion-item>
 		
-		<div ng-repeat="item in item._source.contacts" ng-switch="item.type">
+		<div ng-repeat="item in item.contacts" ng-switch="item.type">
 
 			<div ng-switch-when="admin">
 				<div class="item item-avatar">
