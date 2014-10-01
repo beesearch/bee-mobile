@@ -3,10 +3,14 @@
 
 		<ion-item>	
 			<h2>{{item.name}}</h2>
-			<p>Siren : {{item.siren}}</p>
+			<p>Siren: {{item.siren}}</p>
 		</ion-item>
-		
-		<div ng-repeat="item in item.contacts" ng-switch="item.type">
+
+        <a class="item">
+            <h3><b>Total: {{item.total}}</b> - max: {{item.max}} - avg: {{item.avg}}</h3>
+        </a>
+
+        <div ng-repeat="item in item.contacts" ng-switch="item.type">
 
 			<div ng-switch-when="admin">
 				<div class="item item-avatar">
