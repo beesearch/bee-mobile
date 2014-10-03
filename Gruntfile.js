@@ -20,6 +20,7 @@ module.exports = function(grunt) {
 					'<%= appDir %>/js/app.js' : 		['<%= srcDir %>/app/app.js'],
 					'<%= appDir %>/js/config.js' :		['<%= srcDir %>/app/config.*.js'],
 					'<%= appDir %>/js/services.js' :	['<%= srcDir %>/app/services/*.js', '<%= srcDir %>/js/services/**/*.js'],
+                    '<%= appDir %>/js/filters.js' :	['<%= srcDir %>/app/filters/*.js', '<%= srcDir %>/js/filters/**/*.js'],
 					'<%= appDir %>/js/controllers.js' :	['<%= srcDir %>/index.tmpl.js', '<%= srcDir %>/views/**/*.js'],
 					'<%= appDir %>/js/directives.js' :	['<%= srcDir %>/app/directives/*.js', '<%= srcDir %>/js/directives/**/*.js']
 				}
