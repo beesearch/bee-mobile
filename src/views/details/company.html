@@ -2,13 +2,13 @@
 	<ion-content>
 
 		<ion-item>	
-			<h2>{{item.name}}</h2>
-            <p><b>Note : </b> {{item.customerId | stars}}</p>
-
+			<h1 style="display:inline;color:#2d4eae"><b>{{item.name}} </b></h1>
+            <h5 style="display:inline;">Siren: 1234-56789</h5>
         </ion-item>
 
         <a class="item">
-            <h3><b>Total: {{item.total}}</b> - max: {{item.max}} - avg: {{item.avg}}</h3>
+            <h3 style="display:inline;"><b>Total: {{item.total | currency:"€"}} </b></h3>
+            <h6 style="display:inline;">max: {{item.max | currency:"€"}} - avg: {{item.avg | currency:"€"}}</h6>
         </a>
 
         <div ng-repeat="item in item.contacts" ng-switch="item.type">
