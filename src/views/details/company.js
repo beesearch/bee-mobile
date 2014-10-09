@@ -5,48 +5,63 @@ angular.module(_CONTROLLERS_).controller('company', function($scope, $stateParam
 
 	$scope.top5ProductsChart = {
 		series: [],
-		options: { 
-			chart: { 
-				title: 'Les 5 produits les plus vendus',
-				type: 'pie'	
-			}
+        title: {
+            text:'Ventes par categorie'
+        },
+		options: {
+            chart:{
+                type: 'bar'
+            },
+            plotOptions:{
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enable: false
+                    },
+                    showInLegend: true
+                }
+            }
 		},
 		loading: true
 	}
 
-	$scope.top5SalesChart = {
-		series: [],
-		options: { 
-			chart: { 
-				title: 'Les 10 meilleurs ventes',
-				type: 'pie'	
-			}
-		},
-		loading: true
+	$scope.customerHistorySales = {
+        series: [],
+        title: {
+            text:'Meilleurs ventes'
+        },
+        options: {
+            chart:{
+                type: 'bar'
+            },
+            plotOptions:{
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enable: false
+                    },
+                    showInLegend: true
+                }
+            }
+        },
+        loading: true
 	}
-
 
 	beeModel.get({type: $stateParams.type, index: $stateParams.index, id: $stateParams.companyId}, function(data) {
 		// Set customer datas in scope
 		$scope.item = data.customerDatas[0];
 
 		// Set chart values and remove loading
-		$scope.top5ProductsChart.title = data.companyTop5Chart.title;
-		//$scope.top5ProductsChart.options.chart.type = data.companyTop5Chart.type;
-		for (var i = 0; i < data.companyTop5Chart.series.length; i++) {
-			var chart = data.companyTop5Chart.series[i];
-			$scope.top5ProductsChart.series.push(chart);
-		};
-		$scope.top5ProductsChart.loading = false;
+        $scope.top5ProductsChart.series = data.customerTop5Chart.series;
+        $scope.top5ProductsChart.loading = false;
 
 		// Set chart values and remove loading
-		$scope.top5SalesChart.title = data.companyTop5Sales.title;
-		//$scope.top5SalesChart.options.chart.type = data.companyTop5Sales.type;
-		for (var i = 0; i < data.companyTop5Sales.series.length; i++) {
-			var chart = data.companyTop5Sales.series[i];
-			$scope.top5SalesChart.series.push(chart);
-		};
-		$scope.top5SalesChart.loading = false;
+		$scope.customerHistorySales.series = data.customerHistorySales.series;
+        $scope.customerHistorySales.xAxis = data.customerHistorySales.xAxis;
+        $scope.customerHistorySales.loading = false;
+
 	}, function(error) {
 		// An error occured
 		console.log('error', error)
