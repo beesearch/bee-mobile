@@ -5,12 +5,15 @@ angular.module(_CONTROLLERS_).controller('company', function($scope, $stateParam
 
 	$scope.top5ProductsChart = {
 		series: [],
+        chart:{
+            type: 'line'
+        },
         title: {
             text:'Ventes par categorie'
         },
 		options: {
             chart:{
-                type: 'bar'
+                type: 'pie'
             },
             plotOptions:{
                 pie: {
@@ -26,10 +29,10 @@ angular.module(_CONTROLLERS_).controller('company', function($scope, $stateParam
 		loading: true
 	}
 
-	$scope.customerHistorySales = {
+	$scope.customerCateroyOrderChart = {
         series: [],
         title: {
-            text:'Meilleurs ventes'
+            text:'Vente par categories'
         },
         options: {
             chart:{
@@ -49,20 +52,31 @@ angular.module(_CONTROLLERS_).controller('company', function($scope, $stateParam
         loading: true
 	}
 
+    $scope.customerHistoryOrderChart = {
+        series: [],
+        title: {
+            text:'Historique des ventes'
+        },
+        loading: true
+    }
+
 	beeModel.get({type: $stateParams.type, index: $stateParams.index, id: $stateParams.companyId}, function(data) {
 		// Set customer datas in scope
 		$scope.item = data.customerDatas[0];
 
-		// Set chart values and remove loading
         $scope.top5ProductsChart.series = data.customerTop5Chart.series;
         $scope.top5ProductsChart.loading = false;
 
-		// Set chart values and remove loading
-		$scope.customerHistorySales.series = data.customerHistorySales.series;
-        $scope.customerHistorySales.xAxis = data.customerHistorySales.xAxis;
-        $scope.customerHistorySales.loading = false;
+		$scope.customerCateroyOrderChart.series = data.customerCateroyOrderChart.series;
+        $scope.customerCateroyOrderChart.xAxis = data.customerCateroyOrderChart.xAxis;
+        $scope.customerCateroyOrderChart.loading = false;
 
-	}, function(error) {
+        $scope.customerHistoryOrderChart.series = data.customerHistoryOrderChart.series;
+        $scope.customerHistoryOrderChart.xAxis = data.customerHistoryOrderChart.xAxis;
+        $scope.customerHistoryOrderChart.loading = false;
+
+
+    }, function(error) {
 		// An error occured
 		console.log('error', error)
 	});
