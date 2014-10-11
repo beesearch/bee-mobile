@@ -62,26 +62,32 @@
 
         <highchart config="customerHistoryOrderChart"></highchart>
 
-		<a class="item item-icon-left">
-			<i class="icon ion-bag"></i>
-			<h3>Dernières commandes</h3>
-			<span class="badge badge-assertive">10</span>
+        <a class="item item-icon-left" ng-click="item_onclick(item)">
+			<i class="icon ion-cash"></i>
+			<h3>Commandes</h3>
+			<span class="badge badge-assertive">{{item.orders.length}}</span>
 		</a>
 
-		<highchart config="top5ProductsChart"></highchart>
-		
-		<a class="item item-icon-left">
+        <a class="item item-icon-left">
 			<i class="icon ion-star"></i>
-			<h3>Devis en cours</h3>
+			<h3>Devis</h3>
 			<span class="badge badge-assertive">3</span>
 		</a>
 
-		<highchart config="customerCateroyOrderChart"></highchart>
+        <a class="item item-icon-left">
+            <i class="icon ion-person-stalker"></i>
+            <h3>Appels & Demandes</h3>
+            <span class="badge badge-assertive">25</span>
+        </a>
 
-		<a class="item item-icon-left">
-			<i class="icon ion-bug"></i>
-			<h3>Probleme support en cours</h3>
-			<span class="badge badge-assertive">45</span>
-		</a>
-	</ion-content>
+        <a class="item item-icon-left">
+            <i class="icon ion-bug"></i>
+            <h3>Problemes en cours</h3>
+            <span class="badge badge-assertive">5</span>
+        </a>
+
+        <highchart config="top5ProductsChart"></highchart>
+        <highchart config="customerCateroyOrderChart"></highchart>
+
+    </ion-content>
 </ion-view>

@@ -18,6 +18,11 @@
       templateUrl: 'views/details/company.html',
       controller: 'company'
     })
+    .state('order', {
+        url: '/order/:index/:type/:companyId',
+        templateUrl: 'views/details/order.html',
+        controller: 'order'
+    })
     .state('notifications', {
       url: '/notifications',
       templateUrl: 'views/phonegap/notifications.html',

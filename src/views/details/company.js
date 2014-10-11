@@ -1,4 +1,4 @@
-angular.module(_CONTROLLERS_).controller('company', function($scope, $stateParams, beeModel, currentItem) {
+angular.module(_CONTROLLERS_).controller('company', function($scope, $state, $stateParams, beeModel, currentItem) {
 	console.log('### company controller in (companyId:' + $stateParams.companyId + ', index: ' + $stateParams.index + ', type: ' + $stateParams.type + ')');
 
 	$scope.item = currentItem.get();
@@ -19,10 +19,8 @@ angular.module(_CONTROLLERS_).controller('company', function($scope, $stateParam
                 pie: {
                     allowPointSelect: true,
                     cursor: 'pointer',
-                    dataLabels: {
-                        enable: false
-                    },
-                    showInLegend: true
+                    dataLabels:  false,
+                    showInLegend: false
                 }
             }
 		},
@@ -80,12 +78,19 @@ angular.module(_CONTROLLERS_).controller('company', function($scope, $stateParam
 		// An error occured
 		console.log('error', error)
 	});
-	
+
+    $scope.item_onclick = function(item) {
+        // Store the current line to use it in the next screen
+        currentItem.set(item);
+        // Go to next screen
+        $state.go('order');
+    }
+
 	console.log('### company controller out');
 });
 
 // Make monochrome colors and set them as default for all pies
-Highcharts.getOptions().plotOptions.pie.colors = (function () {
+/*Highcharts.getOptions().plotOptions.pie.colors = (function () {
     var colors = [],
         base = Highcharts.getOptions().colors[0],
         i
@@ -96,4 +101,4 @@ Highcharts.getOptions().plotOptions.pie.colors = (function () {
         colors.push(Highcharts.Color(base).brighten((i - 3) / 7).get());
     }
     return colors;
-}());
+}());*/
