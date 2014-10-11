@@ -1,0 +1,13 @@
+<ion-view title="Détails">
+    <ion-content>
+
+        <div ng-repeat="item in item.orders">
+            <ion-item>
+                <h3 style="color:#3f72ed"><b>{{item.orderDescription}} </b></h3>
+                <h4>{{item.orderDate | date}}</h4>
+                <h2 style="text-align: right">{{item.orderTotal | currency:"€ "}}</h2>
+            </ion-item>
+        </div>
+
+    </ion-content>
+</ion-view>
