@@ -4,10 +4,9 @@
 
 Clone this project, then lauch :
 
-    npm install && bower install && grunt build
+    npm install && bower install
 
-It will install npm dependencies, bower dependencies et run the first
-development build. The build compile files in `src` and copy them in `www`.
+It will install npm dependencies and bower dependencies.
 
 ## Enabling Cordova platforms
 
