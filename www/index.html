@@ -1,9 +1,9 @@
-c<!doctype html>
+<!doctype html>
 <html lang="fr" ng-app="beemobile">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-  <title><%= appName %></title>
+  <title>Bee Mobile</title>
 
   <link href="css/style.css" rel="stylesheet">
   <link href="lib/ionic/release/css/ionic.min.css" rel="stylesheet">
@@ -27,12 +27,25 @@ c<!doctype html>
   <script src="lib/highcharts-ng/dist/highcharts-ng.min.js"></script>
 
   <!-- App -->
-  <script src="js/app.js"></script>
-  <script src="js/config.js"></script>
-  <script src="js/services.js"></script>
-  <script src="js/filters.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/directives.js"></script>
+  <script src="app/app.js"></script>
+  <script src="app/config.constants.js"></script>
+  <script src="app/config.interceptors.js"></script>
+  <script src="app/config.routes.js"></script>
+  <script src="app/config.sanitizer.js"></script>
+  <script src="app/services/cordovaServices.js"></script>
+  <script src="app/services/dataServices.js"></script>
+  <script src="app/services/oauth2Services.js"></script>
+  <script src="app/services/RESTServices.js"></script>
+  <script src="app/filters/filters.js"></script>
+
+  <!-- Controllers -->
+  <script src="index.js"></script>
+  <script src="views/app/app-login.js"></script>
+  <script src="views/details/company.js"></script>
+  <script src="views/details/order.js"></script>
+  <script src="views/phonegap/device.js"></script>
+  <script src="views/phonegap/notifications.js"></script>
+  <script src="views/search/search.js"></script>
 </head>
 
 <body ng-controller="index">
@@ -82,7 +95,7 @@ c<!doctype html>
           Q.N.
         </ion-toggle>
         <div class="item item-divider">
-          Données
+          Donn&eacute;es
         </div>
         <ion-toggle ng-change="switchType('customers')" ng-model="customers"  class="item item-icon-left">
           <i class="icon ion-ios7-people"></i>
